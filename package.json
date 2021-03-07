@@ -1,0 +1,27 @@
+{
+  "name": "cucumber-declarative-gherkin",
+  "version": "1.0.0",
+  "description": "Demo of how to write declarative Gherkin",
+  "main": "index.js",
+  "scripts": {
+    "serve": "cd contino && nx run declarative-gherkin:serve",
+    "test": "cd contino && nx test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/contino/cucumber-declarative-gherkin.git"
+  },
+  "keywords": [
+    "cucumber",
+    "gherkin",
+    "declarative",
+    "declarative-gherkin",
+    "bdd"
+  ],
+  "author": "Joe L. Bailey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/contino/cucumber-declarative-gherkin/issues"
+  },
+  "homepage": "https://github.com/contino/cucumber-declarative-gherkin#readme"
+}
