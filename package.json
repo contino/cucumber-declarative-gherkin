@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "cd contino && nx run declarative-gherkin:serve",
-    "test": "cd contino && nx test"
+    "test": "cd contino && nx run-many --all --target=test",
+    "lint": "cd contino && nx run-many --all --target=lint"
   },
   "repository": {
     "type": "git",
@@ -23,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/contino/cucumber-declarative-gherkin/issues"
   },
-  "homepage": "https://github.com/contino/cucumber-declarative-gherkin#readme"
+  "homepage": "https://github.com/contino/cucumber-declarative-gherkin#readme",
+  "dependencies": {
+    "@material-ui/icons": "^4.11.2"
+  }
 }

@@ -2,7 +2,7 @@
 
 This is a training aide to help people learn Declarative Gherkin.  It is not
 easy to learn Declarative Gherkin.  Thus, this is helps people understand how
-to take what they learned in training and see it working as a whole.
+to take what they learned in training and see it working, as a whole.
 
 ## Perquisites 
 

@@ -17,12 +17,10 @@ import { AdminLanding, AuthButton, Header, Introduction, Login, PrivateRoute, Pr
 export function App() {
   return (
     <div className={styles.app}>
-      <Header />
-      <main>
+      <Router>
         <ProviderAuth>
-          <Router>
-            <AuthButton />
-
+          <Header />
+          <main>
             <Switch>
               <Route path="/" exact>
                 <Introduction />
@@ -37,10 +35,10 @@ export function App() {
                 <AdminLanding />
               </PrivateRoute>
             </Switch>
-          </Router>
+          </main>
         </ProviderAuth>
-     </main>
-   </div>
+      </Router>
+    </div>
   );
 }
 

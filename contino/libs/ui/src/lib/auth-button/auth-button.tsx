@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button } from '@material-ui/core';
+
 
 import {
   useHistory,
@@ -16,19 +18,24 @@ export function AuthButton(props: AuthButtonProps) {
   const history = useHistory();
   const auth = useAuth();
 
-  return auth.user ? (
+
+  return auth != null && auth.user ? (
     <p>
-      Welcome!{" "}
-      <button
+      <Button
+        color="primary"
         onClick={() => {
           auth.signout(() => history.push("/"));
         }}
       >
         Sign out
-      </button>
+      </Button>
     </p>
   ) : (
-    <p>You are not logged in.</p>
+    <p>
+      <Button color="primary" onClick={() => history.push("/login")}>
+        Sign In
+      </Button>
+    </p>
   );}
 
 export default AuthButton;
