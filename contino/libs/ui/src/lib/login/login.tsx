@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import { useAuth } from '@contino/fake-security';
-import { TextField } from '@material-ui/core';
+import { Box, TextField, Typography } from '@material-ui/core';
 import classes from './login.module.scss';
 import { Button } from '@material-ui/core';
 import { useState } from 'react';
@@ -21,7 +21,7 @@ export function Login(props: LoginProps) {
   const auth = useAuth();
   const location = useLocation();
   const [username, setUserName] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [password, setPassword] = useState("DeclarativeGherkinIsFamilyFun!");
   const [failMsg, setFailMsg] = useState("");
 
   const { from } = location.state || { from: { pathname: "/" } };
@@ -52,10 +52,18 @@ export function Login(props: LoginProps) {
     <div>
       <form className={classes.root} noValidate autoComplete="off"
         onSubmit={handleSubmit}>
-        <div id="failMsg">{failMsg}</div>
-        <TextField id="username" label="username" onChange={handleUsernameChange} />
-        <TextField id="password" label="password" onChange={handlePasswordChange} />
-        <Button type="submit" >Login</Button>
+        <Box display="flex" flexDirection="column">
+          <div id="failMsg" style={{display:'flex', minHeight:'2.5rem', justifyContent:'center', alignItems:'center'}}
+            >
+            <Typography variant="h6" color="error">{failMsg}</Typography>
+            </div>
+          <TextField style={{display:'flex'}} id="username" label="username" 
+            onChange={handleUsernameChange} />
+          <TextField style={{display:'flex'}} id="password" label="password" 
+            type="password" value={password}
+            onChange={handlePasswordChange} />
+          <Button type="submit" style={{display:'flex'}}>Login</Button>
+        </Box>
       </form>
     </div>
   );

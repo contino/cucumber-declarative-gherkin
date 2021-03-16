@@ -24,8 +24,5 @@
   "bugs": {
     "url": "https://github.com/contino/cucumber-declarative-gherkin/issues"
   },
-  "homepage": "https://github.com/contino/cucumber-declarative-gherkin#readme",
-  "dependencies": {
-    "@material-ui/icons": "^4.11.2"
-  }
+  "homepage": "https://github.com/contino/cucumber-declarative-gherkin#readme"
 }

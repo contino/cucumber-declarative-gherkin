@@ -1,4 +1,16 @@
+import { Typography } from '@material-ui/core';
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch,
+  useLocation,
+} from "react-router-dom";
+import CreditFormIntro from '../credit-form-intro/credit-form-intro';
+import UserAppStatus from '../user-app-status/user-app-status';
 
 import './user-landing.module.scss';
 
@@ -6,10 +18,26 @@ import './user-landing.module.scss';
 export interface UserLandingProps {}
 
 export function UserLanding(props: UserLandingProps) {
+  let { path, url } = useRouteMatch();
+  const location = useLocation();
+
   return (
-    <div>
-      <h1>Welcome to user-landing!</h1>
+    location.pathname === "/user" ? (
+      <div style={{display:'flex', flexGrow: 2}}>
+      <Typography variant="h5" style={{display:'flex', justifyContent: 'center', flexGrow: 1}}>
+        Welcome to user-landing!
+      </Typography>
     </div>
+    ) : (
+      <Switch>
+        <Route path={`${path}/form`}>
+          <CreditFormIntro />
+        </Route>
+        <Route path={`${path}/status`}>
+          <UserAppStatus />
+        </Route>
+      </Switch>
+    )
   );
 }
 

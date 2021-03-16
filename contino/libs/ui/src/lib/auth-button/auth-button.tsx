@@ -1,41 +1,56 @@
 import React from 'react';
-import { Button } from '@material-ui/core';
+import { Button, Typography } from '@material-ui/core';
+import { useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 import {
   useHistory,
 } from "react-router-dom";
 
-import {useAuth} from '@contino/fake-security';
+import { useAuth } from '@contino/fake-security';
 
 import './auth-button.module.scss';
 
 /* eslint-disable-next-line */
-export interface AuthButtonProps {}
+export interface AuthButtonProps { }
 
 // based on code from https://reactrouter.com/web/example/auth-workflow
 export function AuthButton(props: AuthButtonProps) {
   const history = useHistory();
   const auth = useAuth();
+  const theme = useTheme();
 
+  const butonTheme = {
+    color: theme.palette.primary.contrastText
+  }
+  const useStyles = makeStyles({
+    contrastColor: {
+      color: theme.palette.primary.contrastText,
+    },
+  });
+
+  const classes = useStyles();
 
   return auth != null && auth.user ? (
-    <p>
-      <Button
-        color="primary"
+    <div style={{ display: 'flex' }}>
+      <Button aria-label="person" className={classes.contrastColor}
         onClick={() => {
           auth.signout(() => history.push("/"));
-        }}
-      >
-        Sign out
+        }}>
+        <Typography variant="button">Sign Out</Typography>
       </Button>
-    </p>
+    </div>
   ) : (
-    <p>
-      <Button color="primary" onClick={() => history.push("/login")}>
-        Sign In
-      </Button>
-    </p>
-  );}
+      <div style={{ display: 'flex' }}>
+        <Button aria-label="person" className={classes.contrastColor}
+          onClick={() => {
+            history.push("/login")
+          }}>
+          <Typography variant="button">Sign In</Typography>
+        </Button>
+      </div>
+    );
+}
 
 export default AuthButton;

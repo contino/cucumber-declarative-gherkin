@@ -6,13 +6,18 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  Redirect,
-  useHistory,
-  useLocation
 } from "react-router-dom";
 
-import { AdminLanding, AuthButton, Header, Introduction, Login, PrivateRoute, ProviderAuth, UserLanding } from '@contino/ui';
+import { 
+  AdminLanding, 
+  Header, 
+  Introduction, 
+  Login, 
+  PrivateRoute, 
+  ProviderAuth, 
+  UserLanding,
+  SideNav,
+} from '@contino/ui';
 
 export function App() {
   return (
@@ -20,7 +25,8 @@ export function App() {
       <Router>
         <ProviderAuth>
           <Header />
-          <main>
+          <main className={styles.mainFrame}>
+            <SideNav />
             <Switch>
               <Route path="/" exact>
                 <Introduction />

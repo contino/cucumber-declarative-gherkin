@@ -7,7 +7,9 @@ export const authContext = createContext(null);
 const fakeAuth = {
   isAuthenticated: false,
   signin(username: String, password: String, successCb, failCb) {
-    if (username === null || password === null || username != password) {
+    if (username === null || username === undefined || password === null ||
+       password === undefined ||
+       password !== "DeclarativeGherkinIsFamilyFun!") {
       fakeAuth.isAuthenticated = false;
       setTimeout(failCb, 100, 'Failed login attempt.'); // fake async
       return
@@ -27,7 +29,7 @@ export function useAuth() {
 }
 
 export function useProvideAuth() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState("a");
   const [password, setPassword] = useState(null);
 
   const signin = (username, password, successCb, failCb) => {

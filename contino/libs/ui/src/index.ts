@@ -1,3 +1,6 @@
+export * from './lib/user-app-status/user-app-status';
+export * from './lib/credit-form-intro/credit-form-intro';
+export * from './lib/side-nav/side-nav';
 export * from './lib/auth-button/auth-button';
 export * from './lib/provider-auth/provider-auth';
 export * from './lib/login/login';
