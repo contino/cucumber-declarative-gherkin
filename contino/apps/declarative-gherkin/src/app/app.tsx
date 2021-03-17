@@ -34,10 +34,10 @@ export function App() {
               <Route path="/login">
                 <Login />
               </Route>
-              <PrivateRoute path="/user">
+              <PrivateRoute path="/user" allowedUserName="*">
                 <UserLanding />
               </PrivateRoute>
-              <PrivateRoute path="/admin">
+              <PrivateRoute path="/admin" allowedUserName="admin">
                 <AdminLanding />
               </PrivateRoute>
             </Switch>
