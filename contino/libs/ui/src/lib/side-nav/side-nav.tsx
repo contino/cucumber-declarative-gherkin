@@ -52,17 +52,21 @@ export function SideNav(props: SideNavProps) {
   const classes = useStyles();
   const location = useLocation();
 
-  console.dir(location)
+  let sideNav;
+  if (location !== null && location.pathname.startsWith('/user')) {
+    sideNav = <Paper elevation={3}> 
+      <List aria-label="main mailbox folders"> 
+        <ListItemLink to="/user/form" primary="Apply" pathname={location.pathname} pathPrefix="/user/form" /> 
+        <ListItemLink to="/user/status" primary="Check status" pathname={location.pathname} pathPrefix="/user/status" /> 
+      </List> 
+    </Paper>;
+  } 
+
   return location === null || location.pathname === '/' ? (
     <div className={classes.hide}></div>
   ) : (
     <div className={classes.root}>
-      <Paper elevation={3}>
-        <List aria-label="main mailbox folders">
-          <ListItemLink to="/user/form" primary="Apply" pathname={location.pathname} pathPrefix="/user/form" />
-          <ListItemLink to="/user/status" primary="Check status" pathname={location.pathname} pathPrefix="/user/status" />
-        </List>
-      </Paper>
+      {sideNav}
     </div>
   );
 }
