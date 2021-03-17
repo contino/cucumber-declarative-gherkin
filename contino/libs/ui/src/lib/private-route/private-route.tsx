@@ -15,16 +15,20 @@ import './private-route.module.scss';
 import {useAuth} from '@contino/fake-security';
 
 /* eslint-disable-next-line */
-export interface PrivateRouteProps {}
+export interface PrivateRouteProps {
+}
 
 // based on code from https://reactrouter.com/web/example/auth-workflow
-export function PrivateRoute({ children, ...rest }) {
+export function PrivateRoute( { children, ...rest }) {
   const auth = useAuth();
+
+  const isAllowed = auth.user === rest.allowedUserName || 
+     (rest.allowedUserName === "*" && auth.user !== null);
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        auth.user ? (
+        isAllowed  ? (
           children
         ) : (
           <Redirect
