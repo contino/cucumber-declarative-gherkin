@@ -21,6 +21,7 @@ export function Login(props: LoginProps) {
   const auth = useAuth();
   const location = useLocation();
   const [username, setUserName] = useState(null);
+  // TODO replace with a null to remove the auto password populate  
   const [password, setPassword] = useState("DeclarativeGherkinIsFamilyFun!");
   const [failMsg, setFailMsg] = useState("");
 
@@ -36,7 +37,6 @@ export function Login(props: LoginProps) {
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    // alert('A name was submitted: ' + username + ' : ' + password);
     event.preventDefault();
     login(username, password);
   }

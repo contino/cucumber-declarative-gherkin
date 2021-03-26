@@ -20,11 +20,11 @@
   grid-column: span 2;
 }
 
-.app :global(.flex) {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+// .app :global(.flex) {
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
 
 .app :global(header) {
   background-color: #143055;
@@ -37,21 +37,21 @@
   padding: 0 36px;
 }
 
-.app :global(p) {
-  text-align: center;
-}
+// .app :global(p) {
+//   text-align: center;
+// }
 
-.app :global(h1) {
-  text-align: center;
-  margin-left: 18px;
-  font-size: 24px;
-}
+// .app :global(h1) {
+//   text-align: center;
+//   margin-left: 18px;
+//   font-size: 24px;
+// }
 
-.app :global(h2) {
-  text-align: center;
-  font-size: 20px;
-  margin: 40px 0 10px 0;
-}
+// .app :global(h2) {
+//   text-align: center;
+//   font-size: 20px;
+//   margin: 40px 0 10px 0;
+// }
 
 .app :global(.resources) {
   text-align: center;

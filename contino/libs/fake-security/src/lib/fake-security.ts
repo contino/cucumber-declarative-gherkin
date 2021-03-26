@@ -29,6 +29,7 @@ export function useAuth() {
 }
 
 export function useProvideAuth() {
+  // TODO need to change the username to null to get rid of the auto login
   const [user, setUser] = useState("a");
   const [password, setPassword] = useState(null);
 

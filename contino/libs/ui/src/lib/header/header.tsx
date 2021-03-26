@@ -20,7 +20,7 @@ export function Header(props: HeaderProps) {
         <Link to="/">
           <Logo width="75" height="75" display="flex" />
         </Link>
-        <Typography variant="h1" style={{ display: 'flex' }}>
+        <Typography variant="h3" style={{ display: 'flex' }}>
           First Change Bank
         </Typography>
         <AuthButton />

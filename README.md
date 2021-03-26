@@ -12,4 +12,7 @@ to take what they learned in training and see it working, as a whole.
 
 ## Run the Example App
 
+This demo uses a single app with everything running in memory.  No servers are
+used for this demo.
+
 From the repo root folder run `npm run serve`, then go to `http:\\localhost:4200`.
