@@ -1,7 +1,7 @@
 name: Linter
 
 # Run this workflow every time a new commit pushed to your repository
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   # Set the job key. The key is displayed as the job name
@@ -24,6 +24,9 @@ jobs:
 
       - name: Install depdendencies
         run: npm install
+
+      - name: Install Narwhal/NX
+        run: npm install nx
 
       # Runs the Linter action
       - name: Run Linter
