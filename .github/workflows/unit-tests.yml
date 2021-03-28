@@ -26,7 +26,7 @@ jobs:
         run: cd contino && npm install
 
       - name: Install Narwhal/NX
-        run: cd contino && npm install nx
+        run: cd contino && npm install -g nx
 
       # Runs the unit test action
       - name: Run Unit Tests
