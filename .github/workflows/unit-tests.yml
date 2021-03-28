@@ -21,6 +21,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'
+
+      - name: Install depdendencies
         run: npm install
 
       # Runs the unit test action
