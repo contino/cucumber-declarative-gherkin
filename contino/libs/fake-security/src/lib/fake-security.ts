@@ -6,7 +6,7 @@ export const authContext = createContext(null);
 
 const fakeAuth = {
   isAuthenticated: false,
-  signin(username: String, password: String, successCb, failCb) {
+  signin(username: string, password: string, successCb, failCb) {
     if (username === null || username === undefined || password === null ||
        password === undefined ||
        password !== "DeclarativeGherkinIsFamilyFun!") {
@@ -31,7 +31,7 @@ export function useAuth() {
 export function useProvideAuth() {
   // TODO need to change the username to null to get rid of the auto login
   const [user, setUser] = useState("a");
-  const [password, setPassword] = useState(null);
+  // const [password, setPassword] = useState(null);
 
   const signin = (username, password, successCb, failCb) => {
     return fakeAuth.signin(username, password,

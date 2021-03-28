@@ -18,7 +18,7 @@ import './user-landing.module.scss';
 export interface UserLandingProps {}
 
 export function UserLanding(props: UserLandingProps) {
-  let { path, url } = useRouteMatch();
+  const { path, url } = useRouteMatch();
   const location = useLocation();
 
   return (

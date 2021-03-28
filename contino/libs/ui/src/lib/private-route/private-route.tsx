@@ -22,8 +22,8 @@ export interface PrivateRouteProps {
 export function PrivateRoute( { children, ...rest }) {
   const auth = useAuth();
 
-  const isAllowed = auth.user === rest.allowedUserName || 
-     (rest.allowedUserName === "*" && auth.user !== null);
+  const isAllowed = auth !== null && (auth.user === rest.allowedUserName || 
+     (rest.allowedUserName === "*" && auth.user !== null));
   return (
     <Route
       {...rest}
