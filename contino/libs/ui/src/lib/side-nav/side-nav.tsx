@@ -25,7 +25,7 @@ function ListItemLink(props: ListItemLinkProps) {
     [to],
   );
 
-  let isSelected = props.pathname !== undefined && props.pathname.startsWith(props.pathPrefix);
+  const isSelected = props.pathname !== undefined && props.pathname.startsWith(props.pathPrefix);
 
   return (
     <li>
