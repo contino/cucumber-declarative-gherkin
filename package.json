@@ -8,7 +8,9 @@
     "test": "cd contino && nx run-many --all --target=test",
     "lint": "cd contino && nx run-many --all --target=lint",
     "e2e": "cd contino && npm run e2e",
-    "e2e-dev": "cd contino && npm run e2e-dev"
+    "e2e-headless": "cd contino && npm run e2e-headless",
+    "e2e-dev": "cd contino && npm run e2e-dev",
+    "e2e-dev-headless": "cd contino && npm run e2e-dev-headless"
   },
   "repository": {
     "type": "git",
