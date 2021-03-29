@@ -16,7 +16,7 @@ export function Introduction(props: IntroductionProps) {
   return (
     <div style={{ display: 'flex', flexGrow: 1 }}>
       <Box display="flex" flexDirection="column">
-        <Typography variant="h4" style={{ display: 'flex', justifyContent: 'center' }} >
+        <Typography id="title" variant="h4" style={{ display: 'flex', justifyContent: 'center' }} >
           Welcome to the Declarative Gherkin Demo!
         </Typography>
         <Typography variant="body1">
@@ -27,7 +27,7 @@ export function Introduction(props: IntroductionProps) {
           Gherkin remain concise and easy to understand.  Let's look at how this web-based system
           works.
         </Typography>
-        <Typography variant="h5" style={{ display: 'flex' }}>
+        <Typography id="application-title" variant="h5" style={{ display: 'flex' }}>
           New Credit Card Submissions Applciation
         </Typography>
         <Typography variant="body1">
@@ -48,10 +48,10 @@ export function Introduction(props: IntroductionProps) {
           The admin home page is a list of submisisons.  They can view sumbission details
           or delete one or many submissions.
         </Typography>
-        <Typography variant="h5" style={{ display: 'flex' }}>
+        <Typography id="run-ghekin-tests-title" variant="h5" style={{ display: 'flex' }}>
           Running the Declarative Gherkin Tests
         </Typography>
-        <Typography variant="h5" style={{ display: 'flex' }}>
+        <Typography id="using-app-title" variant="h5" style={{ display: 'flex' }}>
           Using the App
         </Typography>
         <Typography variant="body1">

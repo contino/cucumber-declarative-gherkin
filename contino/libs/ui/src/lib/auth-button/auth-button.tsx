@@ -34,7 +34,7 @@ export function AuthButton(props: AuthButtonProps) {
 
   return auth != null && auth.user ? (
     <div style={{ display: 'flex' }}>
-      <Button aria-label="person" className={classes.contrastColor}
+      <Button id="signout-button" aria-label="person" className={classes.contrastColor}
         onClick={() => {
           auth.signout(() => history.push("/"));
         }}>
@@ -43,7 +43,7 @@ export function AuthButton(props: AuthButtonProps) {
     </div>
   ) : (
       <div style={{ display: 'flex' }}>
-        <Button aria-label="person" className={classes.contrastColor}
+        <Button id="signin-button" aria-label="person" className={classes.contrastColor}
           onClick={() => {
             history.push("/login")
           }}>

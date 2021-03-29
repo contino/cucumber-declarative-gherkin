@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": false,
+    "outDir": "../dist/out-tsc",
+    "allowJs": true,
+    "types": [
+      "node", 
+      "webdriverio/sync", 
+      "@wdio/cucumber-framework", 
+      "@wdio/selenium-standalone-service",
+      "expect-webdriverio",
+      "expect-webdriverio/types/standalone-global"  
+    ]
+  },
+  "include": ["./**/*.ts", "./**/*.js"]
+}
