@@ -4,9 +4,11 @@
   "description": "Demo of how to write declarative Gherkin",
   "main": "index.js",
   "scripts": {
-    "serve": "cd contino && nx run declarative-gherkin:serve",
+    "start": "cd contino && nx run declarative-gherkin:serve",
     "test": "cd contino && nx run-many --all --target=test",
-    "lint": "cd contino && nx run-many --all --target=lint"
+    "lint": "cd contino && nx run-many --all --target=lint",
+    "e2e": "cd contino && npm run e2e",
+    "e2e-dev": "cd contino && npm run e2e-dev"
   },
   "repository": {
     "type": "git",
