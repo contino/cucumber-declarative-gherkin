@@ -1,0 +1,8 @@
+{
+    "cucumberautocomplete.syncfeatures": true,
+    "cucumberautocomplete.steps": [
+        "contino/features/step-definitions/*.ts"
+    ],
+    "cucumberautocomplete.strictGherkinCompletion": true,
+    "cucumberautocomplete.smartSnippets": true,
+}
