@@ -1,11 +1,13 @@
 import { Given, When, Then } from '@cucumber/cucumber';
 import HomePage from '../pageobjects/home.page';
+const cucumberJson = require('wdio-cucumberjs-json-reporter').default;
 
 When('They go to the home page', function () {
     HomePage.open();
 });
 
 Then('They see the demo instructions', function () {
+    cucumberJson.attach("Loging something important.");
     const titleElem = $('#title');
     expect(titleElem).toHaveText('Welcome to the Declarative Gherkin Demo!');
     const appTitleElem = $('#application-title');
