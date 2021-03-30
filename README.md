@@ -27,7 +27,11 @@ To run lint, use `npm run lint`
 
 To run unit tests, use `npm run test`
 
-To generate Cucumber step snippets, run `npm run 
+### Generate Cucumber Step Definitions
+
+WebdriverIO Cucumber framework does not generate the step definitions when 
+they are missing.  So, we use the VS Code extension 
+[Jest-cucumber code generator](https://marketplace.visualstudio.com/items?itemName=Piotr-Porzuczek.jest-cucumber-code-generator-extension).  
 
 ### Troubleshooting e2e Tests
 
