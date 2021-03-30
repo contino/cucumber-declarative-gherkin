@@ -7,19 +7,10 @@ class HomePage extends Page {
     /**
      * define selectors using getter methods
      */
-    get inputUsername () { return $('#username') }
-    get inputPassword () { return $('#password') }
-    get btnSubmit () { return $('button[type="submit"]') }
-
-    /**
-     * a method to encapsule automation code to interact with the page
-     * e.g. to login using username and password
-     */
-    login (username: string, password: string) {
-        this.inputUsername.setValue(username);
-        this.inputPassword.setValue(password);
-        this.btnSubmit.click(); 
-    }
+    get title () { return $('#title') }
+    get applicationTitle () { return $('#application-title') }
+    get runGherkinTestTitle () { return $('#run-ghekin-tests-title') }
+    get usingAppTitle () { return $('#using-app-title') }
 
     /**
      * overwrite specifc options to adapt it to page object
