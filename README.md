@@ -27,6 +27,8 @@ To run lint, use `npm run lint`
 
 To run unit tests, use `npm run test`
 
+To generate Cucumber step snippets, run `npm run 
+
 ### Troubleshooting e2e Tests
 
 See [Cucumber Logging](./docs/cucumber-logging.md)
