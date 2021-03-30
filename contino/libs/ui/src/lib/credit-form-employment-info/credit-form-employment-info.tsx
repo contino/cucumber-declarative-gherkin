@@ -12,7 +12,7 @@ export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
   return (
     <div>
       <h1>Welcome to credit-form-employment-info!</h1>
-      <p>{formData.data.title}</p>
+      <p>{formData.data.firstname}</p>
     </div>
   );
 }

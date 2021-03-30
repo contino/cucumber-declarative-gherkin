@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import FormData from './form-data';
+import ProviderDb from './provider-db';
 
-describe('FormData', () => {
+describe('ProviderDb', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<FormData />);
+    const { baseElement } = render(<ProviderDb />);
     expect(baseElement).toBeTruthy();
   });
 });

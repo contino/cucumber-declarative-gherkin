@@ -8,7 +8,6 @@ export interface FormWizardContextProps { }
 
 export function FormWizardContext(props: any) {
   const formData = useProviderFormData();
-  console.dir(formData);
   return (
     <formDataContext.Provider value={formData}>
       {props.children}
