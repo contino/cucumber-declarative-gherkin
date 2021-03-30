@@ -6,4 +6,3 @@ adoption of declarative Gherkin, it requires three technical items:
 - [Centralized Data Management](../data-mgt/README.md)
 - [Industry/Corporate Terms Wiki](./terms-wiki.md)
 - [Cucumber Logging](./cucumber-logging.md)
-
