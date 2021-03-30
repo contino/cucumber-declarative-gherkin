@@ -19,7 +19,7 @@ export function CreditFormIntro(props: CreditFormIntroProps) {
   // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
   // us build relative links.
-  let { path, url } = useRouteMatch();
+  const { path, url } = useRouteMatch();
 
   return (
     <div>
