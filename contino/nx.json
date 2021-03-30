@@ -22,6 +22,7 @@
       "implicitDependencies": ["declarative-gherkin"]
     },
     "ui": { "tags": [] },
-    "fake-security": { "tags": [] }
+    "fake-security": { "tags": [] },
+    "data": { "tags": [] }
   }
 }

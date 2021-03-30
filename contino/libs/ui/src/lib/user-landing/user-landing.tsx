@@ -10,6 +10,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import CreditFormIntro from '../credit-form-intro/credit-form-intro';
+import FormWizardContext from '../form-wizard-context/form-wizard-context';
 import UserAppStatus from '../user-app-status/user-app-status';
 
 import './user-landing.module.scss';
@@ -31,7 +32,9 @@ export function UserLanding(props: UserLandingProps) {
     ) : (
       <Switch>
         <Route path={`${path}/form`}>
-          <CreditFormIntro />
+          <FormWizardContext>
+            <CreditFormIntro />
+          </FormWizardContext>
         </Route>
         <Route path={`${path}/status`}>
           <UserAppStatus />

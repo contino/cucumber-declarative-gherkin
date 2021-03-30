@@ -1,3 +1,7 @@
+export * from './lib/credit-form-financial-info/credit-form-financial-info';
+export * from './lib/credit-form-employment-info/credit-form-employment-info';
+export * from './lib/credit-form-personal-info/credit-form-personal-info';
+export * from './lib/form-wizard-context/form-wizard-context';
 export * from './lib/user-app-status/user-app-status';
 export * from './lib/credit-form-intro/credit-form-intro';
 export * from './lib/side-nav/side-nav';
