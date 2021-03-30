@@ -17,10 +17,10 @@ export function Header(props: HeaderProps) {
     <header>
       <Box display="flex" flexWrap="nowrap" flexDirection="row"
         alignItems="center" justifyContent="space-between" padding="0 10px">
-        <Link to="/">
-          <Logo width="75" height="75" display="flex" />
+        <Link id="header-logo-link" to="/">
+          <Logo id="header-logo" width="75" height="75" display="flex" />
         </Link>
-        <Typography variant="h3" style={{ display: 'flex' }}>
+        <Typography id="header-title" variant="h3" style={{ display: 'flex' }}>
           First Change Bank
         </Typography>
         <AuthButton />

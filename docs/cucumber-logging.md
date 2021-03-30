@@ -1,0 +1,51 @@
+# Cucumber Logging
+
+Tools like BrowserStack, Sauce Labs and others have these great tools, like 
+recording and logging.  However, they are horrible to sync up with your 
+Cucumber Scenarios, which makes troubleshooting with these services painful.
+To shorten your troubleshooting time, set up your Cucumber Logging.
+
+Cucumber has the attach capability, which can append almost anything to the 
+output JSON file.  This file can be converted into a HTML report.  The report
+shows the status of each scenario steps, the before and after hooks.  Attach 
+place text or images relative to the context it was executed within.  This means
+a test error stack trace can be shown within the failing scenario step.  In 
+addition, embedding a web-client screenshot of the failing scenario step 
+alongside the stack trace is very powerful.  Even more can be logged.
+
+Besides logging the stack trace from the test code and the screenshot of the 
+failing web-client, browser logs can be embedded into the HTML report.  
+In our implementation, they are obtained at the end of scenario.  In addition,
+we only obtain error messages to keep the noise down.
+
+## Viewing the Cucumber HTML Report
+
+After running the e2e test suite, it generates a HTML report.  
+The e2e test suite creates a Cucumber HTML report in 
+`<root-folder>/contino/.tmp/report`.  Opening `index.html` in a browser will
+allow you see the failing and passing items.
+
+<!-- TODO need to add a failing test to describe here. -->
+
+## Logging Stack Trace and Screenshots
+
+Logging of errors are provided by Cucumber and WebDriverIO, so there is no 
+implementation required from us.  However, screenshots requires a few lines of 
+code in the `afterStep` function in the [wdio.conf.js](https://github.com/contino/cucumber-declarative-gherkin/blob/ff19b26034512ee7155ba55aa0fc48b9e0f381f4/contino/wdio.conf.js#L305).
+
+## Logging Browser Log Entries
+
+Logging web-client browser logs take a bit more effort.  The implementation here
+attempts to remove noise and returns just the error message.  It uses a modified 
+version of protractor tool to retrieve browser logs and filter them by logging
+level.
+
+All the code is in `wdio.conf.js`, most of it is at top of the file with 
+a couple of hooks making related calls.  The code starts [here](https://github.com/contino/cucumber-declarative-gherkin/blob/ff19b26034512ee7155ba55aa0fc48b9e0f381f4/contino/wdio.conf.js#L7).
+The primary piece is the `logConsoleOutput` function, which retrieves the logs
+and filters them.
+
+## Logging in the Test Suite
+
+With Cucumber you can log within scenario steps.  An example of the code is 
+[here](https://github.com/contino/cucumber-declarative-gherkin/blob/340bb2f8f488529b78879103b703db858a51f111/contino/features/step-definitions/homepage.steps.ts#L10).
