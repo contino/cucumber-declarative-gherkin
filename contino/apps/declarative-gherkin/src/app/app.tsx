@@ -8,41 +8,44 @@ import {
   Route,
 } from "react-router-dom";
 
-import { 
-  AdminLanding, 
-  Header, 
-  Introduction, 
-  Login, 
-  PrivateRoute, 
-  ProviderAuth, 
+import {
+  AdminLanding,
+  Header,
+  Introduction,
+  Login,
+  PrivateRoute,
+  ProviderAuth,
   UserLanding,
   SideNav,
+  ProviderDB,
 } from '@contino/ui';
 
 export function App() {
   return (
     <div className={styles.app}>
       <Router>
-        <ProviderAuth>
-          <Header />
-          <main className={styles.mainFrame}>
-            <SideNav />
-            <Switch>
-              <Route path="/" exact>
-                <Introduction />
-              </Route>
-              <Route path="/login">
-                <Login />
-              </Route>
-              <PrivateRoute path="/user" allowedUserName="*">
-                <UserLanding />
-              </PrivateRoute>
-              <PrivateRoute path="/admin" allowedUserName="admin">
-                <AdminLanding />
-              </PrivateRoute>
-            </Switch>
-          </main>
-        </ProviderAuth>
+        <ProviderDB>
+          <ProviderAuth>
+            <Header />
+            <main className={styles.mainFrame}>
+              <SideNav />
+              <Switch>
+                <Route path="/" exact>
+                  <Introduction />
+                </Route>
+                <Route path="/login">
+                  <Login />
+                </Route>
+                <PrivateRoute path="/user" allowedUserName="*">
+                  <UserLanding />
+                </PrivateRoute>
+                <PrivateRoute path="/admin" allowedUserName="admin">
+                  <AdminLanding />
+                </PrivateRoute>
+              </Switch>
+            </main>
+          </ProviderAuth>
+        </ProviderDB>
       </Router>
     </div>
   );
