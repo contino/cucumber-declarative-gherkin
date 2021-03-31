@@ -1,3 +1,4 @@
+export * from './lib/credit-form-complete/credit-form-complete';
 export * from './lib/provider-db/provider-db';
 export * from './lib/credit-form-financial-info/credit-form-financial-info';
 export * from './lib/credit-form-employment-info/credit-form-employment-info';

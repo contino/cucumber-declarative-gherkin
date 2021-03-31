@@ -10,11 +10,23 @@ export function useFormData() {
 export function useProviderFormData() {
   const [data, setData] = useState<ApplicationData>(new ApplicationData());
 
-  const setFormData = (data) => {
-    return setData(data);
+  const appendFormData = (dataFragment) => {
+    const newData = Object.assign(data, dataFragment);
+    return setData(newData);
+  }
+  const isValid = () => {
+    console.log('isValid')
+    console.dir(data)
+    return Object.keys(data).every((key) =>{
+      console.dir(data[key])
+      return data[key] !== undefined 
+      || key === 'countryOfCitizenShipSecondary' 
+      || key === 'id';
+    })
   }
   return {
     data,
-    setFormData,
+    appendFormData,
+    isValid,
   }
 }

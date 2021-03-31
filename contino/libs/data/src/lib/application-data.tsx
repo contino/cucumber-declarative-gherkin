@@ -14,6 +14,6 @@ export class ApplicationData {
   occupation: string;
   monthlyHousingPayment: string
   checkingAmount: number
-  savingAmount: number
+  savingsAmount: number
   investmentsAmount: number
 }
