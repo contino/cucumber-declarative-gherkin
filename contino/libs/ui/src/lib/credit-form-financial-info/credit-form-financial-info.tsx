@@ -16,12 +16,14 @@ import {
 import './credit-form-financial-info.module.scss';
 
 type FinanacialInputs = {
+  monthlyIncome: number,
   monthlyHousingPayment: number,
   checkingAmount: number,
   savingsAmount: number,
   investmentsAmount: number,
 }
-let schema = yup.object().shape({
+const schema = yup.object().shape({
+  monthlyIncome: yup.number().required(),
   monthlyHousingPayment: yup.number().required(),
   checkingAmount: yup.number().required(),
   savingsAmount: yup.number().required(),
@@ -59,8 +61,15 @@ export function CreditFormFinancialInfo(props: CreditFormFinancialInfoProps) {
       </Typography>
       <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}
         style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-        <TextField name="monthlyHousingPayment" required id="standard-required" label="Monthly Housing Cost"
+        <TextField name="monthlyIncome" required id="standard-required" label="Monthly Income"
           style={{ display: 'flex', margin: '10px 0 25px 0' }}
+          inputRef={register({ required: true })}
+          error={errors.monthlyIncome?.message !== undefined}
+          helperText={errors.monthlyIncome?.message}
+          value={cachedData.monthlyIncome}
+        />
+        <TextField name="monthlyHousingPayment" required id="standard-required" label="Monthly Housing Cost"
+          style={{ display: 'flex', margin: '0 0 25px 0' }}
           inputRef={register({ required: true })}
           error={errors.monthlyHousingPayment?.message !== undefined}
           helperText={errors.monthlyHousingPayment?.message}

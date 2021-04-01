@@ -1,4 +1,5 @@
 import { useFormData, useDB } from '@contino/data';
+import { Typography } from '@material-ui/core';
 import React from 'react';
 
 import './credit-form-complete.module.scss';
@@ -18,11 +19,17 @@ export function CreditFormComplete(props: CreditFormCompleteProps) {
 
   return validForm ? (
     <div>
-      <h1>Sucess!</h1>
+      <Typography variant="h3">Sucess!</Typography>
+      <Typography id="success-msg" variant="body1">
+        Thank you, your application was submitted for further processing.
+      </Typography>
     </div>
   ) : (
     <div>
-      <h1>Fail!</h1>
+      <Typography variant="h3">Sorry to inform you</Typography>
+      <Typography id="fail-msg" variant="body1">
+        Your application cannot proceed.  We will mail you a detailed letter.
+      </Typography>
     </div>
   );
 }

@@ -16,10 +16,12 @@ const fakeAuth = {
     }
 
     fakeAuth.isAuthenticated = true;
+    localStorage.setItem('user', username);
     setTimeout(successCb, 100); // fake async
   },
   signout(cb) {
     fakeAuth.isAuthenticated = false;
+    localStorage.removeItem('user');
     setTimeout(cb, 100);
   }
 };
@@ -30,8 +32,13 @@ export function useAuth() {
 
 export function useProvideAuth() {
   // TODO need to change the username to null to get rid of the auto login
-  const [user, setUser] = useState('a');
+  const [user, setUser] = useState(null);
   // const [password, setPassword] = useState(null);
+
+  const storedUser = localStorage.getItem('user');
+  if (storedUser && user !== storedUser) {
+    setUser(storedUser);
+  }
 
   const signin = (username, password, successCb, failCb) => {
     return fakeAuth.signin(username, password,

@@ -22,8 +22,8 @@ type PersonalInputs = {
   dateOfBirth: Date,
   ssn: string,
 }
-let schema = yup.object().shape({
-  firstName: yup.string().required().min(3).matches(/^[A-Za-z \.]+$/i),
+const schema = yup.object().shape({
+  firstName: yup.string().required().min(3).matches(/^[A-Za-z .]+$/i),
   middleInitial: yup.string().required().length(1),
   lastName: yup.string().required().min(3),
   dateOfBirth: yup.date().required().min(new Date('1900-01-30T00:00:00')),
@@ -60,7 +60,7 @@ export function CreditFormPersonalInfo(props: CreditFormPersonalInfoProps) {
     if (cachedData.dateOfBirth) {
       setValue('dateOfBirth', cachedData.dateOfBirth, { shouldDirty: true });
     }
-  }, [register])
+  }, [register, cachedData.dateOfBirth, setValue])
 
   console.log("cachedData");
   console.dir(cachedData);

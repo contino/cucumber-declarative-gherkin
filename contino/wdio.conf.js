@@ -112,15 +112,6 @@ exports.config = {
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-        'goog:chromeOptions': {
-            args: [
-                'headless',
-                // Use --disable-gpu to avoid an error from a missing Mesa
-                // library, as per
-                // https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md
-                'disable-gpu',
-            ],
-        }
     }],
     //
     // ===================

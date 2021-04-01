@@ -1,5 +1,5 @@
 import { useFormData } from '@contino/data';
-import { Button, FormControl, FormHelperText, InputLabel, MenuItem, Select, TextField, Typography } from '@material-ui/core';
+import { Button, FormControl, FormHelperText, InputLabel, NativeSelect, Select, TextField, Typography } from '@material-ui/core';
 import React from 'react';
 import { useForm } from "react-hook-form";
 import * as yup from 'yup';
@@ -22,14 +22,14 @@ type EmploymentInputs = {
   monthsEmployed: number,
   occupation: string,
 }
-let schema = yup.object().shape({
-  countryOfCitizenShip: yup.string().required().min(2).matches(/^[A-Za-z \.]+$/i),
-  countryOfCitizenShipSecondary: yup.string().required().min(2).matches(/^[A-Za-z \.]+$/i),
-  currentEmployerName: yup.string().required().min(3).matches(/^[A-Za-z \.]+$/i),
+const schema = yup.object().shape({
+  countryOfCitizenShip: yup.string().required().min(2).matches(/^[A-Za-z .]+$/i),
+  countryOfCitizenShipSecondary: yup.string().required().min(2).matches(/^[A-Za-z .]+$/i),
+  currentEmployerName: yup.string().required().min(3).matches(/^[A-Za-z .]+$/i),
   workPhone: yup.string().required().min(3).matches(/^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$/i),
   yearsEmployed: yup.number().required().max(80).positive(),
   monthsEmployed: yup.number().required().max(12).positive(),
-  occupation: yup.string().required().min(3).matches(/^[A-Za-z \.]+$/i),
+  occupation: yup.string().required().min(3).matches(/^[A-Za-z .]+$/i),
 });
 
 export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
@@ -68,7 +68,7 @@ export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
     if (cachedData.countryOfCitizenShipSecondary) {
       setValue('countryOfCitizenShipSecondary', cachedData.countryOfCitizenShipSecondary, { shouldDirty: true });
     }
-  }, [register])
+  }, [register, cachedData.countryOfCitizenShip, cachedData.countryOfCitizenShipSecondary, setValue])
 
 
   console.log("cachedData");
@@ -82,274 +82,285 @@ export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
       </Typography>
       <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}
         style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
+        <FormControl >
         <InputLabel id="citizenship-country-label">Country of Citizenship</InputLabel>
         <Select
           name="countryOfCitizenShip"
           required
+          native
           labelId="citizenship-country-label"
           onChange={handleChangecountryOfCitizenShip}
           error={errors.countryOfCitizenShip?.message !== undefined}
           value={cachedData.countryOfCitizenShip || ''}
         >
-          <MenuItem value='AR'>Argentina</MenuItem>
-          <MenuItem value='AU'>Australia</MenuItem>
-          <MenuItem value='AT'>Austria</MenuItem>
-          <MenuItem value='BS'>Bahamas</MenuItem>
-          <MenuItem value='BH'>Bahrain</MenuItem>
-          <MenuItem value='BD'>Bangladesh</MenuItem>
-          <MenuItem value='BB'>Barbados</MenuItem>
-          <MenuItem value='BE'>Belgium</MenuItem>
-          <MenuItem value='BZ'>Belize</MenuItem>
-          <MenuItem value='BJ'>Benin</MenuItem>
-          <MenuItem value='BM'>Bermuda</MenuItem>
-          <MenuItem value='BO'>Bolivia</MenuItem>
-          <MenuItem value='BR'>Brazil</MenuItem>
-          <MenuItem value='BG'>Bulgaria</MenuItem>
-          <MenuItem value='BF'>Burkina Faso</MenuItem>
-          <MenuItem value='CL'>Chile</MenuItem>
-          <MenuItem value='CN'>China</MenuItem>
-          <MenuItem value='CO'>Colombia</MenuItem>
-          <MenuItem value='CR'>Costa Rica</MenuItem>
-          <MenuItem value='CI'>Côte D' Ivoire</MenuItem>
-          <MenuItem value='HR'>Croatia</MenuItem>
-          <MenuItem value='CU'>Cuba</MenuItem>
-          <MenuItem value='CY'>Cyprus</MenuItem>
-          <MenuItem value='CZ'>Czech Republic</MenuItem>
-          <MenuItem value='DK'>Denmark</MenuItem>
-          <MenuItem value='DO'>Dominican Republic</MenuItem>
-          <MenuItem value='EC'>Ecuador</MenuItem>
-          <MenuItem value='EG'>Egypt</MenuItem>
-          <MenuItem value='SV'>El Salvador</MenuItem>
-          <MenuItem value='EE'>Estonia</MenuItem>
-          <MenuItem value='ET'>Ethiopia</MenuItem>
-          <MenuItem value='FI'>Finland</MenuItem>
-          <MenuItem value='FR'>France</MenuItem>
-          <MenuItem value='GM'>Gambia</MenuItem>
-          <MenuItem value='DE'>Germany</MenuItem>
-          <MenuItem value='GH'>Ghana</MenuItem>
-          <MenuItem value='GB'>Great Britain</MenuItem>
-          <MenuItem value='GR'>Greece</MenuItem>
-          <MenuItem value='GT'>Guatemala</MenuItem>
-          <MenuItem value='GN'>Guinea</MenuItem>
-          <MenuItem value='GY'>Guyana</MenuItem>
-          <MenuItem value='HN'>Honduras</MenuItem>
-          <MenuItem value='HK'>Hong Kong</MenuItem>
-          <MenuItem value='HU'>Hungary</MenuItem>
-          <MenuItem value='IS'>Iceland</MenuItem>
-          <MenuItem value='IN'>India</MenuItem>
-          <MenuItem value='ID'>Indonesia</MenuItem>
-          <MenuItem value='IR'>Iran</MenuItem>
-          <MenuItem value='IQ'>Iraq</MenuItem>
-          <MenuItem value='IE'>Ireland</MenuItem>
-          <MenuItem value='IL'>Israel</MenuItem>
-          <MenuItem value='IT'>Italy</MenuItem>
-          <MenuItem value='JM'>Jamaica</MenuItem>
-          <MenuItem value='JP'>Japan</MenuItem>
-          <MenuItem value='JO'>Jordan</MenuItem>
-          <MenuItem value='KE'>Kenya</MenuItem>
-          <MenuItem value='KW'>Kuwait</MenuItem>
-          <MenuItem value='LV'>Latvia</MenuItem>
-          <MenuItem value='LB'>Lebanon</MenuItem>
-          <MenuItem value='LR'>Liberia</MenuItem>
-          <MenuItem value='LY'>Libya</MenuItem>
-          <MenuItem value='LI'>Liechtenstein</MenuItem>
-          <MenuItem value='LT'>Lithuania</MenuItem>
-          <MenuItem value='LU'>Luxembourg</MenuItem>
-          <MenuItem value='MW'>Malawi</MenuItem>
-          <MenuItem value='MY'>Malaysia</MenuItem>
-          <MenuItem value='ML'>Mali</MenuItem>
-          <MenuItem value='MT'>Malta</MenuItem>
-          <MenuItem value='MR'>Mauritania</MenuItem>
-          <MenuItem value='MU'>Mauritius</MenuItem>
-          <MenuItem value='MX'>Mexico</MenuItem>
-          <MenuItem value='MA'>Morocco</MenuItem>
-          <MenuItem value='NL'>Netherlands</MenuItem>
-          <MenuItem value='NZ'>New Zealand</MenuItem>
-          <MenuItem value='NI'>Nicaragua</MenuItem>
-          <MenuItem value='NE'>Niger</MenuItem>
-          <MenuItem value='NG'>Nigeria</MenuItem>
-          <MenuItem value='NO'>Norway</MenuItem>
-          <MenuItem value='OM'>Oman</MenuItem>
-          <MenuItem value='PK'>Pakistan</MenuItem>
-          <MenuItem value='PA'>Panama</MenuItem>
-          <MenuItem value='PY'>Paraguay</MenuItem>
-          <MenuItem value='PE'>Peru</MenuItem>
-          <MenuItem value='PH'>Philippines</MenuItem>
-          <MenuItem value='PL'>Poland</MenuItem>
-          <MenuItem value='PT'>Portugal</MenuItem>
-          <MenuItem value='PR'>Puerto Rico</MenuItem>
-          <MenuItem value='QA'>Qatar</MenuItem>
-          <MenuItem value='KR'>Republic of Korea</MenuItem>
-          <MenuItem value='RO'>Romania</MenuItem>
-          <MenuItem value='RU'>Russian Federation</MenuItem>
-          <MenuItem value='SA'>Saudi Arabia</MenuItem>
-          <MenuItem value='SN'>Senegal</MenuItem>
-          <MenuItem value='SC'>Seychelles</MenuItem>
-          <MenuItem value='SL'>Sierra Leone</MenuItem>
-          <MenuItem value='SG'>Singapore</MenuItem>
-          <MenuItem value='SK'>Slovakia</MenuItem>
-          <MenuItem value='SI'>Slovenia</MenuItem>
-          <MenuItem value='ZA'>South Africa</MenuItem>
-          <MenuItem value='ES'>Spain</MenuItem>
-          <MenuItem value='LK'>Sri Lanka</MenuItem>
-          <MenuItem value='SD'>Sudan</MenuItem>
-          <MenuItem value='SR'>Surinam</MenuItem>
-          <MenuItem value='SE'>Sweden</MenuItem>
-          <MenuItem value='CH'>Switzerland</MenuItem>
-          <MenuItem value='SY'>Syria</MenuItem>
-          <MenuItem value='SY'>Syrian Arab Republic</MenuItem>
-          <MenuItem value='TW'>Taiwan, Province of China</MenuItem>
-          <MenuItem value='TZ'>Tanzania</MenuItem>
-          <MenuItem value='TH'>Thailand</MenuItem>
-          <MenuItem value='TT'>Trinidad and Tobago</MenuItem>
-          <MenuItem value='TN'>Tunisia</MenuItem>
-          <MenuItem value='TR'>Turkey</MenuItem>
-          <MenuItem value='UG'>Uganda</MenuItem>
-          <MenuItem value='UA'>Ukraine</MenuItem>
-          <MenuItem value='AE'>United Arab Emirates</MenuItem>
-          <MenuItem value='UY'>Uruguay</MenuItem>
-          <MenuItem value='VE'>Venezuela</MenuItem>
-          <MenuItem value='VN'>Vietnam</MenuItem>
-          <MenuItem value='YE'>Yemen</MenuItem>
-          <MenuItem value='ZM'>Zambia</MenuItem>
-          <MenuItem value='ZW'>Zimbabwe</MenuItem>
+          <option aria-label="None" value="" />
+          <option value='AR'>Argentina</option>
+          <option value='AU'>Australia</option>
+          <option value='AT'>Austria</option>
+          <option value='BS'>Bahamas</option>
+          <option value='BH'>Bahrain</option>
+          <option value='BD'>Bangladesh</option>
+          <option value='BB'>Barbados</option>
+          <option value='BE'>Belgium</option>
+          <option value='BZ'>Belize</option>
+          <option value='BJ'>Benin</option>
+          <option value='BM'>Bermuda</option>
+          <option value='BO'>Bolivia</option>
+          <option value='BR'>Brazil</option>
+          <option value='BG'>Bulgaria</option>
+          <option value='BF'>Burkina Faso</option>
+          <option value='CL'>Chile</option>
+          <option value='CN'>China</option>
+          <option value='CO'>Colombia</option>
+          <option value='CR'>Costa Rica</option>
+          <option value='CI'>Côte D' Ivoire</option>
+          <option value='HR'>Croatia</option>
+          <option value='CU'>Cuba</option>
+          <option value='CY'>Cyprus</option>
+          <option value='CZ'>Czech Republic</option>
+          <option value='DK'>Denmark</option>
+          <option value='DO'>Dominican Republic</option>
+          <option value='EC'>Ecuador</option>
+          <option value='EG'>Egypt</option>
+          <option value='SV'>El Salvador</option>
+          <option value='EE'>Estonia</option>
+          <option value='ET'>Ethiopia</option>
+          <option value='FI'>Finland</option>
+          <option value='FR'>France</option>
+          <option value='GM'>Gambia</option>
+          <option value='DE'>Germany</option>
+          <option value='GH'>Ghana</option>
+          <option value='GB'>Great Britain</option>
+          <option value='GR'>Greece</option>
+          <option value='GT'>Guatemala</option>
+          <option value='GN'>Guinea</option>
+          <option value='GY'>Guyana</option>
+          <option value='HN'>Honduras</option>
+          <option value='HK'>Hong Kong</option>
+          <option value='HU'>Hungary</option>
+          <option value='IS'>Iceland</option>
+          <option value='IN'>India</option>
+          <option value='ID'>Indonesia</option>
+          <option value='IR'>Iran</option>
+          <option value='IQ'>Iraq</option>
+          <option value='IE'>Ireland</option>
+          <option value='IL'>Israel</option>
+          <option value='IT'>Italy</option>
+          <option value='JM'>Jamaica</option>
+          <option value='JP'>Japan</option>
+          <option value='JO'>Jordan</option>
+          <option value='KE'>Kenya</option>
+          <option value='KW'>Kuwait</option>
+          <option value='LV'>Latvia</option>
+          <option value='LB'>Lebanon</option>
+          <option value='LR'>Liberia</option>
+          <option value='LY'>Libya</option>
+          <option value='LI'>Liechtenstein</option>
+          <option value='LT'>Lithuania</option>
+          <option value='LU'>Luxembourg</option>
+          <option value='MW'>Malawi</option>
+          <option value='MY'>Malaysia</option>
+          <option value='ML'>Mali</option>
+          <option value='MT'>Malta</option>
+          <option value='MR'>Mauritania</option>
+          <option value='MU'>Mauritius</option>
+          <option value='MX'>Mexico</option>
+          <option value='MA'>Morocco</option>
+          <option value='NL'>Netherlands</option>
+          <option value='NZ'>New Zealand</option>
+          <option value='NI'>Nicaragua</option>
+          <option value='NE'>Niger</option>
+          <option value='NG'>Nigeria</option>
+          <option value='NO'>Norway</option>
+          <option value='OM'>Oman</option>
+          <option value='PK'>Pakistan</option>
+          <option value='PA'>Panama</option>
+          <option value='PY'>Paraguay</option>
+          <option value='PE'>Peru</option>
+          <option value='PH'>Philippines</option>
+          <option value='PL'>Poland</option>
+          <option value='PT'>Portugal</option>
+          <option value='PR'>Puerto Rico</option>
+          <option value='QA'>Qatar</option>
+          <option value='KR'>Republic of Korea</option>
+          <option value='RO'>Romania</option>
+          <option value='RU'>Russian Federation</option>
+          <option value='SA'>Saudi Arabia</option>
+          <option value='SN'>Senegal</option>
+          <option value='SC'>Seychelles</option>
+          <option value='SL'>Sierra Leone</option>
+          <option value='SG'>Singapore</option>
+          <option value='SK'>Slovakia</option>
+          <option value='SI'>Slovenia</option>
+          <option value='ZA'>South Africa</option>
+          <option value='ES'>Spain</option>
+          <option value='LK'>Sri Lanka</option>
+          <option value='SD'>Sudan</option>
+          <option value='SR'>Surinam</option>
+          <option value='SE'>Sweden</option>
+          <option value='CH'>Switzerland</option>
+          <option value='SY'>Syria</option>
+          <option value='SY'>Syrian Arab Republic</option>
+          <option value='TW'>Taiwan, Province of China</option>
+          <option value='TZ'>Tanzania</option>
+          <option value='TH'>Thailand</option>
+          <option value='TT'>Trinidad and Tobago</option>
+          <option value='TN'>Tunisia</option>
+          <option value='TR'>Turkey</option>
+          <option value='UG'>Uganda</option>
+          <option value='UA'>Ukraine</option>
+          <option value='AE'>United Arab Emirates</option>
+          <option value='US'>United States</option>
+          <option value='UY'>Uruguay</option>
+          <option value='VE'>Venezuela</option>
+          <option value='VN'>Vietnam</option>
+          <option value='YE'>Yemen</option>
+          <option value='ZM'>Zambia</option>
+          <option value='ZW'>Zimbabwe</option>
         </Select>
         <FormHelperText>{errors.countryOfCitizenShip?.message}</FormHelperText>
+        </FormControl>
 
+        <FormControl>
         <InputLabel id="second-citizenship-country-label">Second Country of Citizenship</InputLabel>
-        <Select
-          name="countryOfCitizenShipSecondary"
+        <NativeSelect
           required
-          labelId="second-citizenship-country-label"
+          inputProps={{
+            name: 'countryOfCitizenShipSecondary',
+            id: 'second-citizenship-country-label',
+          }}
           onChange={handleChangecountryOfCitizenShipSecondary}
           error={errors.countryOfCitizenShipSecondary?.message !== undefined}
           value={cachedData.countryOfCitizenShipSecondary || ''}
         >
-          <MenuItem value='XX'>Unselected</MenuItem>
-          <MenuItem value='AR'>Argentina</MenuItem>
-          <MenuItem value='AU'>Australia</MenuItem>
-          <MenuItem value='AT'>Austria</MenuItem>
-          <MenuItem value='BS'>Bahamas</MenuItem>
-          <MenuItem value='BH'>Bahrain</MenuItem>
-          <MenuItem value='BD'>Bangladesh</MenuItem>
-          <MenuItem value='BB'>Barbados</MenuItem>
-          <MenuItem value='BE'>Belgium</MenuItem>
-          <MenuItem value='BZ'>Belize</MenuItem>
-          <MenuItem value='BJ'>Benin</MenuItem>
-          <MenuItem value='BM'>Bermuda</MenuItem>
-          <MenuItem value='BO'>Bolivia</MenuItem>
-          <MenuItem value='BR'>Brazil</MenuItem>
-          <MenuItem value='BG'>Bulgaria</MenuItem>
-          <MenuItem value='BF'>Burkina Faso</MenuItem>
-          <MenuItem value='CL'>Chile</MenuItem>
-          <MenuItem value='CN'>China</MenuItem>
-          <MenuItem value='CO'>Colombia</MenuItem>
-          <MenuItem value='CR'>Costa Rica</MenuItem>
-          <MenuItem value='CI'>Côte D' Ivoire</MenuItem>
-          <MenuItem value='HR'>Croatia</MenuItem>
-          <MenuItem value='CU'>Cuba</MenuItem>
-          <MenuItem value='CY'>Cyprus</MenuItem>
-          <MenuItem value='CZ'>Czech Republic</MenuItem>
-          <MenuItem value='DK'>Denmark</MenuItem>
-          <MenuItem value='DO'>Dominican Republic</MenuItem>
-          <MenuItem value='EC'>Ecuador</MenuItem>
-          <MenuItem value='EG'>Egypt</MenuItem>
-          <MenuItem value='SV'>El Salvador</MenuItem>
-          <MenuItem value='EE'>Estonia</MenuItem>
-          <MenuItem value='ET'>Ethiopia</MenuItem>
-          <MenuItem value='FI'>Finland</MenuItem>
-          <MenuItem value='FR'>France</MenuItem>
-          <MenuItem value='GM'>Gambia</MenuItem>
-          <MenuItem value='DE'>Germany</MenuItem>
-          <MenuItem value='GH'>Ghana</MenuItem>
-          <MenuItem value='GB'>Great Britain</MenuItem>
-          <MenuItem value='GR'>Greece</MenuItem>
-          <MenuItem value='GT'>Guatemala</MenuItem>
-          <MenuItem value='GN'>Guinea</MenuItem>
-          <MenuItem value='GY'>Guyana</MenuItem>
-          <MenuItem value='HN'>Honduras</MenuItem>
-          <MenuItem value='HK'>Hong Kong</MenuItem>
-          <MenuItem value='HU'>Hungary</MenuItem>
-          <MenuItem value='IS'>Iceland</MenuItem>
-          <MenuItem value='IN'>India</MenuItem>
-          <MenuItem value='ID'>Indonesia</MenuItem>
-          <MenuItem value='IR'>Iran</MenuItem>
-          <MenuItem value='IQ'>Iraq</MenuItem>
-          <MenuItem value='IE'>Ireland</MenuItem>
-          <MenuItem value='IL'>Israel</MenuItem>
-          <MenuItem value='IT'>Italy</MenuItem>
-          <MenuItem value='JM'>Jamaica</MenuItem>
-          <MenuItem value='JP'>Japan</MenuItem>
-          <MenuItem value='JO'>Jordan</MenuItem>
-          <MenuItem value='KE'>Kenya</MenuItem>
-          <MenuItem value='KW'>Kuwait</MenuItem>
-          <MenuItem value='LV'>Latvia</MenuItem>
-          <MenuItem value='LB'>Lebanon</MenuItem>
-          <MenuItem value='LR'>Liberia</MenuItem>
-          <MenuItem value='LY'>Libya</MenuItem>
-          <MenuItem value='LI'>Liechtenstein</MenuItem>
-          <MenuItem value='LT'>Lithuania</MenuItem>
-          <MenuItem value='LU'>Luxembourg</MenuItem>
-          <MenuItem value='MW'>Malawi</MenuItem>
-          <MenuItem value='MY'>Malaysia</MenuItem>
-          <MenuItem value='ML'>Mali</MenuItem>
-          <MenuItem value='MT'>Malta</MenuItem>
-          <MenuItem value='MR'>Mauritania</MenuItem>
-          <MenuItem value='MU'>Mauritius</MenuItem>
-          <MenuItem value='MX'>Mexico</MenuItem>
-          <MenuItem value='MA'>Morocco</MenuItem>
-          <MenuItem value='NL'>Netherlands</MenuItem>
-          <MenuItem value='NZ'>New Zealand</MenuItem>
-          <MenuItem value='NI'>Nicaragua</MenuItem>
-          <MenuItem value='NE'>Niger</MenuItem>
-          <MenuItem value='NG'>Nigeria</MenuItem>
-          <MenuItem value='NO'>Norway</MenuItem>
-          <MenuItem value='OM'>Oman</MenuItem>
-          <MenuItem value='PK'>Pakistan</MenuItem>
-          <MenuItem value='PA'>Panama</MenuItem>
-          <MenuItem value='PY'>Paraguay</MenuItem>
-          <MenuItem value='PE'>Peru</MenuItem>
-          <MenuItem value='PH'>Philippines</MenuItem>
-          <MenuItem value='PL'>Poland</MenuItem>
-          <MenuItem value='PT'>Portugal</MenuItem>
-          <MenuItem value='PR'>Puerto Rico</MenuItem>
-          <MenuItem value='QA'>Qatar</MenuItem>
-          <MenuItem value='KR'>Republic of Korea</MenuItem>
-          <MenuItem value='RO'>Romania</MenuItem>
-          <MenuItem value='RU'>Russian Federation</MenuItem>
-          <MenuItem value='SA'>Saudi Arabia</MenuItem>
-          <MenuItem value='SN'>Senegal</MenuItem>
-          <MenuItem value='SC'>Seychelles</MenuItem>
-          <MenuItem value='SL'>Sierra Leone</MenuItem>
-          <MenuItem value='SG'>Singapore</MenuItem>
-          <MenuItem value='SK'>Slovakia</MenuItem>
-          <MenuItem value='SI'>Slovenia</MenuItem>
-          <MenuItem value='ZA'>South Africa</MenuItem>
-          <MenuItem value='ES'>Spain</MenuItem>
-          <MenuItem value='LK'>Sri Lanka</MenuItem>
-          <MenuItem value='SD'>Sudan</MenuItem>
-          <MenuItem value='SR'>Surinam</MenuItem>
-          <MenuItem value='SE'>Sweden</MenuItem>
-          <MenuItem value='CH'>Switzerland</MenuItem>
-          <MenuItem value='SY'>Syria</MenuItem>
-          <MenuItem value='SY'>Syrian Arab Republic</MenuItem>
-          <MenuItem value='TW'>Taiwan, Province of China</MenuItem>
-          <MenuItem value='TZ'>Tanzania</MenuItem>
-          <MenuItem value='TH'>Thailand</MenuItem>
-          <MenuItem value='TT'>Trinidad and Tobago</MenuItem>
-          <MenuItem value='TN'>Tunisia</MenuItem>
-          <MenuItem value='TR'>Turkey</MenuItem>
-          <MenuItem value='UG'>Uganda</MenuItem>
-          <MenuItem value='UA'>Ukraine</MenuItem>
-          <MenuItem value='AE'>United Arab Emirates</MenuItem>
-          <MenuItem value='UY'>Uruguay</MenuItem>
-          <MenuItem value='VE'>Venezuela</MenuItem>
-          <MenuItem value='VN'>Vietnam</MenuItem>
-          <MenuItem value='YE'>Yemen</MenuItem>
-          <MenuItem value='ZM'>Zambia</MenuItem>
-          <MenuItem value='ZW'>Zimbabwe</MenuItem>
-        </Select>
+          <option aria-label="None" value="" />
+          <option value='XX'>Unselected</option>
+          <option value='AR'>Argentina</option>
+          <option value='AU'>Australia</option>
+          <option value='AT'>Austria</option>
+          <option value='BS'>Bahamas</option>
+          <option value='BH'>Bahrain</option>
+          <option value='BD'>Bangladesh</option>
+          <option value='BB'>Barbados</option>
+          <option value='BE'>Belgium</option>
+          <option value='BZ'>Belize</option>
+          <option value='BJ'>Benin</option>
+          <option value='BM'>Bermuda</option>
+          <option value='BO'>Bolivia</option>
+          <option value='BR'>Brazil</option>
+          <option value='BG'>Bulgaria</option>
+          <option value='BF'>Burkina Faso</option>
+          <option value='CL'>Chile</option>
+          <option value='CN'>China</option>
+          <option value='CO'>Colombia</option>
+          <option value='CR'>Costa Rica</option>
+          <option value='CI'>Côte D' Ivoire</option>
+          <option value='HR'>Croatia</option>
+          <option value='CU'>Cuba</option>
+          <option value='CY'>Cyprus</option>
+          <option value='CZ'>Czech Republic</option>
+          <option value='DK'>Denmark</option>
+          <option value='DO'>Dominican Republic</option>
+          <option value='EC'>Ecuador</option>
+          <option value='EG'>Egypt</option>
+          <option value='SV'>El Salvador</option>
+          <option value='EE'>Estonia</option>
+          <option value='ET'>Ethiopia</option>
+          <option value='FI'>Finland</option>
+          <option value='FR'>France</option>
+          <option value='GM'>Gambia</option>
+          <option value='DE'>Germany</option>
+          <option value='GH'>Ghana</option>
+          <option value='GB'>Great Britain</option>
+          <option value='GR'>Greece</option>
+          <option value='GT'>Guatemala</option>
+          <option value='GN'>Guinea</option>
+          <option value='GY'>Guyana</option>
+          <option value='HN'>Honduras</option>
+          <option value='HK'>Hong Kong</option>
+          <option value='HU'>Hungary</option>
+          <option value='IS'>Iceland</option>
+          <option value='IN'>India</option>
+          <option value='ID'>Indonesia</option>
+          <option value='IR'>Iran</option>
+          <option value='IQ'>Iraq</option>
+          <option value='IE'>Ireland</option>
+          <option value='IL'>Israel</option>
+          <option value='IT'>Italy</option>
+          <option value='JM'>Jamaica</option>
+          <option value='JP'>Japan</option>
+          <option value='JO'>Jordan</option>
+          <option value='KE'>Kenya</option>
+          <option value='KW'>Kuwait</option>
+          <option value='LV'>Latvia</option>
+          <option value='LB'>Lebanon</option>
+          <option value='LR'>Liberia</option>
+          <option value='LY'>Libya</option>
+          <option value='LI'>Liechtenstein</option>
+          <option value='LT'>Lithuania</option>
+          <option value='LU'>Luxembourg</option>
+          <option value='MW'>Malawi</option>
+          <option value='MY'>Malaysia</option>
+          <option value='ML'>Mali</option>
+          <option value='MT'>Malta</option>
+          <option value='MR'>Mauritania</option>
+          <option value='MU'>Mauritius</option>
+          <option value='MX'>Mexico</option>
+          <option value='MA'>Morocco</option>
+          <option value='NL'>Netherlands</option>
+          <option value='NZ'>New Zealand</option>
+          <option value='NI'>Nicaragua</option>
+          <option value='NE'>Niger</option>
+          <option value='NG'>Nigeria</option>
+          <option value='NO'>Norway</option>
+          <option value='OM'>Oman</option>
+          <option value='PK'>Pakistan</option>
+          <option value='PA'>Panama</option>
+          <option value='PY'>Paraguay</option>
+          <option value='PE'>Peru</option>
+          <option value='PH'>Philippines</option>
+          <option value='PL'>Poland</option>
+          <option value='PT'>Portugal</option>
+          <option value='PR'>Puerto Rico</option>
+          <option value='QA'>Qatar</option>
+          <option value='KR'>Republic of Korea</option>
+          <option value='RO'>Romania</option>
+          <option value='RU'>Russian Federation</option>
+          <option value='SA'>Saudi Arabia</option>
+          <option value='SN'>Senegal</option>
+          <option value='SC'>Seychelles</option>
+          <option value='SL'>Sierra Leone</option>
+          <option value='SG'>Singapore</option>
+          <option value='SK'>Slovakia</option>
+          <option value='SI'>Slovenia</option>
+          <option value='ZA'>South Africa</option>
+          <option value='ES'>Spain</option>
+          <option value='LK'>Sri Lanka</option>
+          <option value='SD'>Sudan</option>
+          <option value='SR'>Surinam</option>
+          <option value='SE'>Sweden</option>
+          <option value='CH'>Switzerland</option>
+          <option value='SY'>Syria</option>
+          <option value='SY'>Syrian Arab Republic</option>
+          <option value='TW'>Taiwan, Province of China</option>
+          <option value='TZ'>Tanzania</option>
+          <option value='TH'>Thailand</option>
+          <option value='TT'>Trinidad and Tobago</option>
+          <option value='TN'>Tunisia</option>
+          <option value='TR'>Turkey</option>
+          <option value='UG'>Uganda</option>
+          <option value='UA'>Ukraine</option>
+          <option value='AE'>United Arab Emirates</option>
+          <option value='US'>United States</option>
+          <option value='UY'>Uruguay</option>
+          <option value='VE'>Venezuela</option>
+          <option value='VN'>Vietnam</option>
+          <option value='YE'>Yemen</option>
+          <option value='ZM'>Zambia</option>
+          <option value='ZW'>Zimbabwe</option>
+        </NativeSelect>
         <FormHelperText>{errors.countryOfCitizenShip?.message}</FormHelperText>
+        </FormControl>
 
         <TextField name="currentEmployerName" required id="standard-required" label="Employer Name"
           style={{ display: 'flex', margin: '0 0 25px 0' }}

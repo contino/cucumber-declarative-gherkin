@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Tom Smith",
+        "aliases": [
+            "Tom Smith w/ minimum acceptable back-end ratio"
+        ],
+        "firstName": "Tom",
+        "middleInitial": "A",
+        "lastName": "Smith",
+        "dateOfBirth": "12/12/1980",
+        "ssn": "555-55-5555",
+        "countryOfCitizenShip": "Great Britain",
+        "countryOfCitizenShipSecondary": "United States",
+        "currentEmployerName": "Acme Shoes",
+        "workPhone": "(555)444-3333",
+        "yearsEmployed": 5,
+        "monthsEmployed": 2,
+        "occupation": "Project Manager",
+        "monthlyHousingPayment": 2000,
+        "checkingAmount": 2000,
+        "savingsAmount": 2000,
+        "investmentsAmount": 20000,
+        "monthlyIncome": 5000,
+        "username": "tom_smith",
+        "password": "DeclarativeGherkinIsFamilyFun!"
+    }
+]
