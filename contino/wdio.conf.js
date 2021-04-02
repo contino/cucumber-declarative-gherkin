@@ -20,7 +20,7 @@ let browserLogsInstance;
   keep log noise down.
   https://www.selenium.dev/selenium/docs/api/javascript/module/selenium-webdriver/lib/logging_exports_Level.html
 */
-const consoleLoggingLevels = ['SEVERE'];
+const consoleLoggingLevels = ['SEVERE', 'INFO', 'WARNING'];
 
 /**
  * This takes browser logs and appends them to the Cucumber JSON file.
@@ -36,9 +36,7 @@ function logConsoleOutput(suppressErrors) {
         const bLogs = browserLogsInstance.logs();
         if (cucumberJson.attach && bLogs && consoleLoggingLevels && consoleLoggingLevels.length > 0) {
             bLogs.forEach((log) => {
-                console.log("log:");
                 if (consoleLoggingLevels.includes(log.level.toString())) {
-                    console.log("logging log entry");
                     cucumberJson.attach(`${new Date(log.timestamp)} [${log.level}]: ${log.message}`);
                 }
             });
@@ -112,15 +110,7 @@ exports.config = {
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-        'goog:chromeOptions': {
-            args: [
-                'headless',
-                // Use --disable-gpu to avoid an error from a missing Mesa
-                // library, as per
-                // https://chromium.googlesource.com/chromium/src/+/lkgr/headless/README.md
-                'disable-gpu',
-            ],
-        }
+        "goog:loggingPrefs": { "driver": "WARNING", "browser": "INFO" }
     }],
     //
     // ===================
@@ -287,12 +277,17 @@ exports.config = {
     beforeScenario: function (world) {
         // Set up logging of browser logs 
         const logs = browserLogs(browser);
-        if (enforceConsoleLogErrors && enforceConsoleLogErrors.toLowerCase() === 'true') {
-            logs.ignore(logs.or(logs.or(logs.WARNING, logs.INFO), logs.DEBUG));
-        } else {
-            logs.ignore(logs.or(logs.or(logs.or(logs.WARNING, logs.INFO), logs.DEBUG), logs.ERROR));
-        }
+        // TODO make client logs capture more configurable
+        // if (enforceConsoleLogErrors && enforceConsoleLogErrors.toLowerCase() === 'true') {
+        //     logs.ignore(logs.or(logs.or(logs.WARNING, logs.INFO), logs.DEBUG));
+        // } else {
+        //     logs.ignore(logs.or(logs.or(logs.or(logs.WARNING, logs.INFO), logs.DEBUG), logs.ERROR));
+        // }
         browserLogsInstance = logs;
+        // log any errors from the browser opening, which are not related to 
+        // the test.  Helps with troubleshooting.
+        logConsoleOutput(false);
+        logs.reset();
     },
     /**
      * Runs before a Cucumber step

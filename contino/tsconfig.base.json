@@ -18,7 +18,8 @@
       "@contino/ui": ["libs/ui/src/index.ts"],
       "@contino/fake-security": ["libs/fake-security/src/index.ts"],
       "@contino/data": ["libs/data/src/index.ts"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules", "tmp"]
 }

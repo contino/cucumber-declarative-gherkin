@@ -11,7 +11,8 @@
       "@wdio/selenium-standalone-service",
       "expect-webdriverio",
       "expect-webdriverio/types/standalone-global"  
-    ]
+    ],
+    "resolveJsonModule": true,
   },
   "include": ["./**/*.ts", "./**/*.js"]
 }

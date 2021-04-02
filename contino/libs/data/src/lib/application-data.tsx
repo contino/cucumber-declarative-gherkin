@@ -12,8 +12,9 @@ export class ApplicationData {
   yearsEmployed: number;
   monthsEmployed: number;
   occupation: string;
-  monthlyHousingPayment: string
-  checkingAmount: number
-  savingAmount: number
-  investmentsAmount: number
+  monthlyHousingPayment: number;
+  checkingAmount: number;
+  savingsAmount: number;
+  investmentsAmount: number;
+  monthlyIncome: number;
 }

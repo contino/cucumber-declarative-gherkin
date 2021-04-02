@@ -12,24 +12,25 @@ interface ListItemLinkProps {
   to: string;
   pathname: string;
   pathPrefix: string;
+  id: string
 }
 
 function ListItemLink(props: ListItemLinkProps) {
-  const { icon, primary, to } = props;
+  const { icon, primary, to, id } = props;
 
   const renderLink = React.useMemo(
     () =>
       React.forwardRef<any, Omit<RouterLinkProps, 'to'>>((itemProps, ref) => (
-        <RouterLink to={to} ref={ref} {...itemProps} />
+        <RouterLink id={id} to={to} ref={ref} {...itemProps} />
       )),
-    [to],
+    [to, id],
   );
 
   const isSelected = props.pathname !== undefined && props.pathname.startsWith(props.pathPrefix);
 
   return (
     <li>
-      <ListItem button component={renderLink} selected={isSelected}>
+      <ListItem id={id} button component={renderLink} selected={isSelected}>
         <ListItemText primary={primary}/>
       </ListItem>
     </li>
@@ -56,8 +57,8 @@ export function SideNav(props: SideNavProps) {
   if (location !== null && location.pathname.startsWith('/user')) {
     sideNav = <Paper elevation={3}> 
       <List aria-label="main mailbox folders"> 
-        <ListItemLink to="/user/form" primary="Apply" pathname={location.pathname} pathPrefix="/user/form" /> 
-        <ListItemLink to="/user/status" primary="Check status" pathname={location.pathname} pathPrefix="/user/status" /> 
+        <ListItemLink id="apply-link" to="/user/form" primary="Apply" pathname={location.pathname} pathPrefix="/user/form" /> 
+        <ListItemLink id="status-link" to="/user/status" primary="Check status" pathname={location.pathname} pathPrefix="/user/status" /> 
       </List> 
     </Paper>;
   } 

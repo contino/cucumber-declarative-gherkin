@@ -1,3 +1,4 @@
+import header from './header';
 import Page from './page';
 
 /**
@@ -16,6 +17,13 @@ class LoginPage extends Page {
      * e.g. to login using username and password
      */
     login (username: string, password: string) {
+        if (header.signoutButton.isExisting()) {
+            header.signoutButton.moveTo();
+            if (header.signoutButton.isDisplayedInViewport()) {
+                header.signoutButton.click();
+            }
+        }
+        header.signinButton.click();
         this.inputUsername.setValue(username);
         this.inputPassword.setValue(password);
         this.btnSubmit.click(); 
@@ -25,7 +33,7 @@ class LoginPage extends Page {
      * overwrite specifc options to adapt it to page object
      */
     open () {
-        return super.open('login');
+        super.open('login');
     }
 }
 

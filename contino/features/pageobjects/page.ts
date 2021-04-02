@@ -8,6 +8,6 @@ export default class Page {
     * @param path path of the sub page (e.g. /path/to/page.html)
     */
     open (path: string) {
-        return browser.url(`http://localhost:4200/${path}`)
+        browser.url(`http://localhost:4200/${path}`)
     }
 }

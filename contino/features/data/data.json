@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Tom Smith",
+        "aliases": [
+            "Tom Smith w/ minimum acceptable back-end ratio"
+        ],
+        "firstName": "Tom",
+        "middleInitial": "A",
+        "lastName": "Smith",
+        "dateOfBirth": "12/12/1980",
+        "ssn": "555-55-5555",
+        "countryOfCitizenShip": "GB",
+        "countryOfCitizenShipSecondary": "US",
+        "currentEmployerName": "Acme Shoes",
+        "workPhone": "(555)444-3333",
+        "yearsEmployed": 5,
+        "monthsEmployed": 2,
+        "occupation": "Project Manager",
+        "monthlyHousingPayment": 1800,
+        "checkingAmount": 2000,
+        "savingsAmount": 2000,
+        "investmentsAmount": 20000,
+        "monthlyIncome": 5000,
+        "username": "tom_smith",
+        "password": "GhekinIsFun"
+    },
+    {
+        "name": "Mike Fog",
+        "aliases": [
+            "Mike Fog w/ a just barely failing back-end ratio"
+        ],
+        "firstName": "Mike",
+        "middleInitial": "A",
+        "lastName": "Fog",
+        "dateOfBirth": "01/01/1980",
+        "ssn": "555-66-5555",
+        "countryOfCitizenShip": "GB",
+        "countryOfCitizenShipSecondary": "US",
+        "currentEmployerName": "Acme Sinks",
+        "workPhone": "(555)222-3333",
+        "yearsEmployed": 3,
+        "monthsEmployed": 3,
+        "occupation": "CEO",
+        "monthlyHousingPayment": 18001,
+        "checkingAmount": 200000,
+        "savingsAmount": 200000,
+        "investmentsAmount": 20000000,
+        "monthlyIncome": 50000,
+        "username": "mike_fog",
+        "password": "GhekinIsFun"
+    },
+    {
+        "name": "Lisa Mach",
+        "aliases": [
+            "Lisa Mach w/ highest failing credit score"
+        ],
+        "firstName": "Lisa",
+        "middleInitial": "b",
+        "lastName": "Mach",
+        "dateOfBirth": "12/11/1981",
+        "ssn": "555-55-6666",
+        "countryOfCitizenShip": "GB",
+        "countryOfCitizenShipSecondary": "US",
+        "currentEmployerName": "Acme Boots",
+        "workPhone": "(555)555-3333",
+        "yearsEmployed": 2,
+        "monthsEmployed": 2,
+        "occupation": "Boot Maker",
+        "monthlyHousingPayment": 1000,
+        "checkingAmount": 1000,
+        "savingsAmount": 1000,
+        "investmentsAmount": 10000,
+        "monthlyIncome": 2000,
+        "username": "lisa_mach",
+        "password": "GhekinIsFun"
+    },
+    {
+        "name": "failing back-end ratio",
+        "monthlyHousingPayment": 18001,
+        "monthlyIncome": 50000
+    }
+]
