@@ -9,7 +9,7 @@ const fakeAuth = {
   signin(username: string, password: string, successCb, failCb) {
     if (username === null || username === undefined || password === null ||
        password === undefined ||
-       password !== "DeclarativeGherkinIsFamilyFun!") {
+       password !== "GhekinIsFun") {
       fakeAuth.isAuthenticated = false;
       setTimeout(failCb, 100, 'Failed login attempt.'); // fake async
       return

@@ -22,7 +22,7 @@
         "investmentsAmount": 20000,
         "monthlyIncome": 5000,
         "username": "tom_smith",
-        "password": "DeclarativeGherkinIsFamilyFun!"
+        "password": "GhekinIsFun"
     },
     {
         "name": "Mike Fog",
@@ -47,7 +47,7 @@
         "investmentsAmount": 20000000,
         "monthlyIncome": 50000,
         "username": "mike_fog",
-        "password": "DeclarativeGherkinIsFamilyFun!"
+        "password": "GhekinIsFun"
     },
     {
         "name": "Lisa Mach",
@@ -72,7 +72,7 @@
         "investmentsAmount": 10000,
         "monthlyIncome": 2000,
         "username": "lisa_mach",
-        "password": "DeclarativeGherkinIsFamilyFun!"
+        "password": "GhekinIsFun"
     },
     {
         "name": "failing back-end ratio",

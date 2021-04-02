@@ -58,12 +58,12 @@ export function Introduction(props: IntroductionProps) {
           Using the App
         </Typography>
         <Typography variant="body1">
-          To login as a user, use any username with the password "DeclarativeGherkinIsFamilyFun!".
+          To login as a user, use any username, except "admin" with the password "GhekinIsFun".
           <Link component={RouterLink} to="/user"
             style={{ display: 'flex' }}>
             Go to User Homepage
           </Link>
-          For admin, the username is "admin" with the password "DeclarativeGherkinIsFamilyFun!".
+          For admin, the username is "admin" with the password "GhekinIsFun".
           <Link component={RouterLink} to="/admin"
             style={{ display: 'flex' }}>
             Go to Admin Homepage
@@ -82,7 +82,7 @@ export function Introduction(props: IntroductionProps) {
           <li>Industry/Corporate Terms Wiki</li>
           <li>Cucumber Logging</li>
         </ul>
-        Please read "docs/critical-pieces.md" for more details.
+        Please read "docs/declarative-gherkin.md" for more details.
       </Box>
     </div>
   );
