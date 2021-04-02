@@ -33,11 +33,14 @@ const schema = yup.object().shape({
 });
 
 export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
-  const { register, handleSubmit, setValue, formState, errors } = useForm<EmploymentInputs>({
+  const { register, handleSubmit, setValue, errors } = useForm<EmploymentInputs>({
     resolver: yupResolver(schema),
   });
   const formData = useFormData();
   const history = useHistory();
+  const [countryOfCitizenShip, setCountryOfCitizenShip] = React.useState('');
+  const [countryOfCitizenShipSecondary, setCountryOfCitizenShipSecondary] = React.useState('');
+
 
   const cachedData = formData.data;
 
@@ -49,13 +52,18 @@ export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
   }
 
   const handleChangecountryOfCitizenShip = (e) => {
-    setValue("countryOfCitizenShip", e.target.value, { shouldDirty: true });
-    cachedData.countryOfCitizenShip = e.target.value
+    const newSelection = e.target.value;
+    setValue("countryOfCitizenShip", newSelection, { shouldDirty: true });
+    setCountryOfCitizenShip(newSelection);
+    cachedData.countryOfCitizenShip = newSelection
     formData.appendFormData(cachedData);
   }
+
   const handleChangecountryOfCitizenShipSecondary = (e) => {
-    setValue("countryOfCitizenShipSecondary", e.target.value, { shouldDirty: true });
-    cachedData.countryOfCitizenShipSecondary = e.target.value
+    const newSelection = e.target.value;
+    setCountryOfCitizenShipSecondary(newSelection)
+    setValue("countryOfCitizenShipSecondary", newSelection, { shouldDirty: true });
+    cachedData.countryOfCitizenShipSecondary = newSelection
     formData.appendFormData(cachedData);
   }
 
@@ -64,17 +72,17 @@ export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
     register("countryOfCitizenShipSecondary"); // custom register Antd input
     if (cachedData.countryOfCitizenShip) {
       setValue('countryOfCitizenShip', cachedData.countryOfCitizenShip, { shouldDirty: true });
+      setCountryOfCitizenShip(cachedData.countryOfCitizenShip);
     }
     if (cachedData.countryOfCitizenShipSecondary) {
       setValue('countryOfCitizenShipSecondary', cachedData.countryOfCitizenShipSecondary, { shouldDirty: true });
+      setCountryOfCitizenShipSecondary(cachedData.countryOfCitizenShipSecondary)
     }
-  }, [register, cachedData.countryOfCitizenShip, cachedData.countryOfCitizenShipSecondary, setValue])
+  }, [register, cachedData.countryOfCitizenShip, setCountryOfCitizenShip,
+    setCountryOfCitizenShipSecondary,
+    cachedData.countryOfCitizenShipSecondary, setValue])
 
 
-  console.log("cachedData");
-  console.dir(cachedData);
-  console.log("formState", JSON.stringify(formState, null, 2));
-  // console.dir(formState);
   return (
     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
       <Typography variant="h5">
@@ -91,7 +99,7 @@ export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
           labelId="citizenship-country-label"
           onChange={handleChangecountryOfCitizenShip}
           error={errors.countryOfCitizenShip?.message !== undefined}
-          value={cachedData.countryOfCitizenShip || ''}
+          value={countryOfCitizenShip}
         >
           <option aria-label="None" value="" />
           <option value='AR'>Argentina</option>
@@ -223,15 +231,14 @@ export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
 
         <FormControl>
         <InputLabel id="second-citizenship-country-label">Second Country of Citizenship</InputLabel>
-        <NativeSelect
+        <Select
+          native
           required
-          inputProps={{
-            name: 'countryOfCitizenShipSecondary',
-            id: 'second-citizenship-country-label',
-          }}
+          name='countryOfCitizenShipSecondary'
+          id='second-citizenship-country-label'
           onChange={handleChangecountryOfCitizenShipSecondary}
           error={errors.countryOfCitizenShipSecondary?.message !== undefined}
-          value={cachedData.countryOfCitizenShipSecondary || ''}
+          value={countryOfCitizenShipSecondary}
         >
           <option aria-label="None" value="" />
           <option value='XX'>Unselected</option>
@@ -358,7 +365,7 @@ export function CreditFormEmploymentInfo(props: CreditFormEmploymentInfoProps) {
           <option value='YE'>Yemen</option>
           <option value='ZM'>Zambia</option>
           <option value='ZW'>Zimbabwe</option>
-        </NativeSelect>
+        </Select>
         <FormHelperText>{errors.countryOfCitizenShip?.message}</FormHelperText>
         </FormControl>
 

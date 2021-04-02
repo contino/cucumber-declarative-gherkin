@@ -8,3 +8,10 @@ Given(/^"(.*)" logs in$/, (userNameAlias) => {
     homePage.open();
     loginPage.login(userData.username, userData.password);
 });
+
+Given(/^"(.*)" logs in with these mods$/, (userNameAlias, table) => {
+    const modDataNames = dataManager.getDataTableColumnValues(table, 0);
+    const userData = dataManager.getDataWithMods(userNameAlias, modDataNames);
+    homePage.open();
+    loginPage.login(userData.username, userData.password);
+});

@@ -33,10 +33,8 @@ class CreditFormPage extends Page {
     get tfInvestmentsAmount () { return $('[name="investmentsAmount"]') }
 
     // Completion Page
-    get txtSuccessMsg () { return $('#success-msg') }
-    get txtSuccessTitle () { return $('#success-title') }
-    get txtFailMsg () { return $('#fail-msg') }
-    get txtFailTitle () { return $('#fail-title') }
+    get txtResponseMsg () { return $('#response-msg') }
+    get txtResponseTitle () { return $('#response-title') }
 
     get btnContinue () { return $('button[type="submit"]') }
     get btnSubmit () { return $('button[type="submit"]') }
@@ -71,8 +69,8 @@ class CreditFormPage extends Page {
     }
 
     filloutEmploymentSection(data) {
-        this.slctCountryOfCitizenShip.selectByVisibleText(data['countryOfCitizenShip']);
-        this.slctCountryOfCitizenShipSecondary.selectByVisibleText(data['countryOfCitizenShipSecondary']);
+        this.slctCountryOfCitizenShip.selectByAttribute('value', data['countryOfCitizenShip']);
+        this.slctCountryOfCitizenShipSecondary.selectByAttribute('value', data['countryOfCitizenShipSecondary']);
         this.tfCurrentEmployerName.setValue(data['currentEmployerName']);
         this.tfWorkPhone.setValue(data['workPhone']);
         this.tfYearsEmployed.setValue(data['yearsEmployed']);

@@ -13,5 +13,5 @@ When('they submit their form', () => {
 });
 
 Then(/^they see a submittal response "(.*)"$/, (msg) => {
-    expect(creditFormPage.txtSuccessMsg).toHaveText(msg);
+    expect(creditFormPage.txtResponseMsg).toHaveText(msg);
 });

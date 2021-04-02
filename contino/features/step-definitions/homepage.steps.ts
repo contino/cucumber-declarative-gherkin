@@ -13,8 +13,6 @@ Then('They see the demo instructions', function () {
     expect(titleElem).toHaveText('Welcome to the Declarative Gherkin Demo!');
     const appTitleElem = HomePage.applicationTitle;
     expect(appTitleElem).toHaveText('New Credit Card Submissions Applciation');
-    const runTestTitleElem = HomePage.runGherkinTestTitle;
-    expect(runTestTitleElem).toHaveText('Running the Declarative Gherkin Tests');
     const usingAppTitleElem = HomePage.usingAppTitle;
     expect(usingAppTitleElem).toHaveText('Using the App');
 });

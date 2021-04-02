@@ -34,7 +34,7 @@ const schema = yup.object().shape({
 export interface CreditFormFinancialInfoProps { }
 
 export function CreditFormFinancialInfo(props: CreditFormFinancialInfoProps) {
-  const { register, handleSubmit, setValue, formState, errors } = useForm<FinanacialInputs>({
+  const { register, handleSubmit, errors } = useForm<FinanacialInputs>({
     resolver: yupResolver(schema),
   });
   const formData = useFormData();
@@ -49,11 +49,6 @@ export function CreditFormFinancialInfo(props: CreditFormFinancialInfoProps) {
     history.push("/user/form/complete");
   }
 
-
-  console.log("cachedData");
-  console.dir(cachedData);
-  console.log("formState", JSON.stringify(formState, null, 2));
-  // console.dir(formState);
   return (
     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
       <Typography variant="h5">

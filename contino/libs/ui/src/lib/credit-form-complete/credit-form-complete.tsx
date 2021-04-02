@@ -12,22 +12,25 @@ export function CreditFormComplete(props: CreditFormCompleteProps) {
   const db = useDB();
 
   const validForm = formData.isValid();
+  const approvedForm = formData.isApproved();
+
+  console.log("approvedForm", approvedForm)
 
   if (validForm) {
     db.addUpdateApplciation(formData.data);
   }
 
-  return validForm ? (
+  return validForm && approvedForm ? (
     <div>
-      <Typography variant="h3">Sucess!</Typography>
-      <Typography id="success-msg" variant="body1">
+      <Typography id="response-title" variant="h5">Sucess!</Typography>
+      <Typography id="response-msg" variant="body1">
         Thank you, your application was submitted for further processing.
       </Typography>
     </div>
   ) : (
     <div>
-      <Typography variant="h3">Sorry to inform you</Typography>
-      <Typography id="fail-msg" variant="body1">
+      <Typography id="response-title" variant="h5">Sorry to inform you...</Typography>
+      <Typography id="response-msg" variant="body1">
         Your application cannot proceed.  We will mail you a detailed letter.
       </Typography>
     </div>

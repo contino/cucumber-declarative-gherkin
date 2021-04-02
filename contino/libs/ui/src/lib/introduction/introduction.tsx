@@ -19,6 +19,12 @@ export function Introduction(props: IntroductionProps) {
         <Typography id="title" variant="h4" style={{ display: 'flex', justifyContent: 'center' }} >
           Welcome to the Declarative Gherkin Demo!
         </Typography>
+        <Typography id="warning-msg" variant="h6" style={{ display: 'flex' }}>
+          WARNING: This app is a work in progress!  The only working piece is 
+          the credit application submission process and it is not fully complete.  
+          The other pieces are not implemented yet.  This was released early to
+          aide declarative Gherkin training and eduction.
+        </Typography>
         <Typography variant="body1">
           This is a demostraion of how to implement declarative Gherkin using a simpale web-based
           credit card application form.  Several declarative Gherkin examples use simplistic examples,
@@ -31,8 +37,8 @@ export function Introduction(props: IntroductionProps) {
           New Credit Card Submissions Applciation
         </Typography>
         <Typography variant="body1">
-          This web-based application allows users to submit new request for
-          a credit card and see the status of their submission.  Only one
+          This web-based application allows users to submit request for
+          a new credit card and see the status of their submission.  Only one
           submission per user.  There is an admin function in the system.
           They can only view and delete submissions.
         </Typography>
@@ -47,9 +53,6 @@ export function Introduction(props: IntroductionProps) {
         <Typography variant="body1">
           The admin home page is a list of submisisons.  They can view sumbission details
           or delete one or many submissions.
-        </Typography>
-        <Typography id="run-ghekin-tests-title" variant="h5" style={{ display: 'flex' }}>
-          Running the Declarative Gherkin Tests
         </Typography>
         <Typography id="using-app-title" variant="h5" style={{ display: 'flex' }}>
           Using the App

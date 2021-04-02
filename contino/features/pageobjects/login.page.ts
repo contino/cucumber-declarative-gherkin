@@ -20,7 +20,7 @@ class LoginPage extends Page {
         if (header.signoutButton.isExisting()) {
             header.signoutButton.moveTo();
             if (header.signoutButton.isDisplayedInViewport()) {
-                header.signinButton.click();
+                header.signoutButton.click();
             }
         }
         header.signinButton.click();

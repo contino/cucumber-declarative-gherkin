@@ -34,7 +34,7 @@ const schema = yup.object().shape({
 export interface CreditFormPersonalInfoProps { }
 
 export function CreditFormPersonalInfo(props: CreditFormPersonalInfoProps) {
-  const { register, handleSubmit, setValue, formState, errors } = useForm<PersonalInputs>({
+  const { register, handleSubmit, setValue, errors } = useForm<PersonalInputs>({
     resolver: yupResolver(schema),
   });
   const formData = useFormData();
@@ -62,10 +62,6 @@ export function CreditFormPersonalInfo(props: CreditFormPersonalInfoProps) {
     }
   }, [register, cachedData.dateOfBirth, setValue])
 
-  console.log("cachedData");
-  console.dir(cachedData);
-  console.log("formState", JSON.stringify(formState, null, 2));
-  // console.dir(formState);
   return (
     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
       <Typography variant="h5">
