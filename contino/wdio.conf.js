@@ -110,7 +110,7 @@ exports.config = {
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
-        "goog:loggingPrefs": { "driver": "INFO", "browser": "INFO" }
+        "goog:loggingPrefs": { "driver": "WARNING", "browser": "INFO" }
     }],
     //
     // ===================
