@@ -1,5 +1,5 @@
 // Import the module
-const config = require('./wdio.conf.js').config;
+const config = require('./wdio.conf.ts').config;
 
 config.capabilities[0]['goog:chromeOptions'] = {
     args: [

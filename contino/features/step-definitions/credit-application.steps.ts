@@ -15,3 +15,8 @@ When('they submit their form', () => {
 Then(/^they see a submittal response "(.*)"$/, (msg) => {
     expect(creditFormPage.txtResponseMsg).toHaveText(msg);
 });
+
+Then(/^they see a "(.*)" submittal response$/, (msgType) => {
+    const msgMap = dataManager.getNonCachedData("Form Submittal Response Messages")["msgMap"];
+    expect(creditFormPage.txtResponseMsg).toHaveText(msgMap[msgType]);
+});

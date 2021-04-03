@@ -78,5 +78,12 @@
         "name": "failing back-end ratio",
         "monthlyHousingPayment": 18001,
         "monthlyIncome": 50000
+    },
+    {
+        "name": "Form Submittal Response Messages",
+        "msgMap": {
+            "failing": "Your application cannot proceed. We will mail you a detailed letter.",
+            "success": "Thank you, your application was submitted for further processing."
+        }
     }
 ]

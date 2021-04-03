@@ -4,7 +4,7 @@ import homePage from '../pageobjects/home.page';
 import loginPage from '../pageobjects/login.page';
 
 Given(/^"(.*)" logs in$/, (userNameAlias) => {
-    const userData = dataManager.getData(userNameAlias);
+    const userData = dataManager.getData(userNameAlias, true);
     homePage.open();
     loginPage.login(userData.username, userData.password);
 });

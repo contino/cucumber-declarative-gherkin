@@ -29,5 +29,6 @@
   "bugs": {
     "url": "https://github.com/contino/cucumber-declarative-gherkin/issues"
   },
-  "homepage": "https://github.com/contino/cucumber-declarative-gherkin#readme"
+  "homepage": "https://github.com/contino/cucumber-declarative-gherkin#readme",
+  "devDependencies": {}
 }

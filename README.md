@@ -47,7 +47,23 @@ To run unit tests, use `npm run test`
 
 WebdriverIO Cucumber framework does not generate the step definitions when
 they are missing.  So, we use the VS Code extension
-[Jest-cucumber code generator](https://marketplace.visualstudio.com/items?itemName=Piotr-Porzuczek.jest-cucumber-code-generator-extension).
+[Jest-cucumber code generator](https://marketplace.visualstudio.com/items?itemName=Piotr-Porzuczek.jest-cucumber-code-generator-extension).  
+
+**NOTE:** the plugin generates regex requiring alteration, example:
+
+Failing regex:
+
+```gehrkin
+Then(/^they see a submittal response (.*)$/
+```
+
+Correct regex: (Double quotes)
+
+```gehrkin
+Then(/^they see a submittal response "(.*)"$/
+```
+
+Without the double quotes, the string will contain them and fail comparisons.
 
 ### Troubleshooting e2e Tests
 
