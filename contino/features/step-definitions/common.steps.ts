@@ -15,3 +15,9 @@ Given(/^"(.*)" logs in with these mods$/, (userNameAlias, table) => {
     homePage.open();
     loginPage.login(userData.username, userData.password);
 });
+
+Given(/^"(.*)" logs in with this mod '(.*)'$/, (userNameAlias, modName) => {
+    const userData = dataManager.getDataWithMods(userNameAlias, [modName]);
+    homePage.open();
+    loginPage.login(userData.username, userData.password);
+});

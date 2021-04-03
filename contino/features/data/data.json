@@ -85,5 +85,41 @@
             "failing": "Your application cannot proceed. We will mail you a detailed letter.",
             "success": "Thank you, your application was submitted for further processing."
         }
+    },
+    {
+        "name": "empty names",
+        "firstName": "",
+        "middleInitial": "",
+        "lastName": ""
+    },
+    {
+        "name": "short names",
+        "firstName": "Li",
+        "middleInitial": "",
+        "lastName": "Li"
+    },
+    {
+        "name": "long middle initial",
+        "firstName": "",
+        "middleInitial": "LI",
+        "lastName": ""
+    },
+    {
+        "name": "name required error msgs",
+        "firstName": "firstName is a required field",
+        "middleInitial": "middleInitial is a required field",
+        "lastName": "lastName is a required field"
+    },
+    {
+        "name": "name must be X characters",
+        "firstName": "firstName is a required field",
+        "middleInitial": "middleInitial must be exactly 1 characters",
+        "lastName": "lastName is a required field"
+    },
+    {
+        "name": "name at least X characters",
+        "firstName": "firstName must be at least 3 characters",
+        "middleInitial": "middleInitial is a required field",
+        "lastName": "lastName must be at least 3 characters"
     }
 ]

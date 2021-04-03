@@ -42,11 +42,13 @@ class DataManager {
     }
 
     getDataWithMods(nameAlias: string, modDataNames: string[]) {
-        let finalData = this.getData(nameAlias, true);
+        console.log("getDataWithMods:nameAlias", nameAlias);
+        let finalData = this.getNonCachedData(nameAlias);
         console.log("finalData", finalData);
         modDataNames.forEach((innerNameAlias) => {
             console.log("innerNameAlias", innerNameAlias);
-            let data = this.getData(innerNameAlias, true);
+            let data = this.getNonCachedData(innerNameAlias);
+            delete data.name;
             console.log("data", data);
             finalData = Object.assign(finalData, data);
         });
