@@ -1,8 +1,8 @@
 # cucumber-declarative-gherkin
 
-[![Linter](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/linter.yml/badge.svg)](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/linter.yml)()
-[![Unit Tests](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/unit-tests.yml)()
-[![e2e Tests](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/e2e-test.yml)()
+[![Linter](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/linter.yml/badge.svg)](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/linter.yml)
+[![Unit Tests](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/unit-tests.yml)
+[![e2e Tests](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/e2e-test.yml)
 
 This is a training aide to help people learn Declarative Gherkin.  It is not
 easy to learn Declarative Gherkin.  Thus, this app helps people understand how
