@@ -1,13 +1,15 @@
 import Page from './page';
-import UserNavigation from './user-navigation';
 
-enum FormSections {
+// The sections of the credit form mapped to URL paths
+export enum FormSections {
     Personal = "user/form",
     Employment = "user/form/page2",
     Financial = "user/form/page3"
 }
 
 class CreditFormPage extends Page {
+
+    get txtPageHelperTexts () { return $('.Mui-error') }
 
     // Personal section elements
     get tfFirstName () { return $('[name="firstName"]') }

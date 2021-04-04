@@ -20,6 +20,11 @@ Feature: New Credit Form Applciation
         When they submit their form
         And they see a "failing" submittal response
 
+    # This is a broken scenario to demostrate the logging and screenshot 
+    # logging abilities.  To see the logs, open the file below and naviagte 
+    # the failure using the red badges as your guide.
+    # "cucumber-declarative-gherkin/contino/.tmp/report/index.html"
+    @brokenScenario
     Scenario: Fail form submittal due to being highest failing credit score
         Given "Lisa Mach w/ highest failing credit score" logs in
         And "Lisa Mach" fills out the form with their information
@@ -39,3 +44,13 @@ Feature: New Credit Form Applciation
         And "Tom Smith" fills out the form with their information
         When they submit their form
         And they see a "failing" submittal response
+
+    # Good eaxmple of testing system errors.  This may require running the 
+    # system under test supported by mocks.  Thus, it is easy to inject
+    # This type of failure.
+    Scenario: Error due to form processing unavilable
+        Given "Kelly Baddy w/ the ability to break things" logs in
+        And "Kelly Baddy" fills out the form with their information
+        When they submit their form
+        And they see a "error" submittal response
+    

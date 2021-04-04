@@ -126,6 +126,8 @@ exports.config = {
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
+        // Override the default browser logging to get more info in the 
+        // Cucumber HTML report.
         "goog:loggingPrefs": { "driver": "WARNING", "browser": "INFO" }
     }],
     //
@@ -304,6 +306,7 @@ exports.config = {
         // the test.  Helps with troubleshooting.
         logConsoleOutput(false);
         logs.reset();
+        // Clear any existing data in the data manager, so we start new
         dataManager.clearCache();
     },
     /**
