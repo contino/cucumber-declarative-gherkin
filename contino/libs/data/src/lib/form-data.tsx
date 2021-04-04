@@ -14,16 +14,22 @@ function getUserData(firstName, lastName) {
 }
 
 function isAcceptableCreditScore(data) {
+  if (data.firstName === 'Kelly' && data.lastName === 'Baddy') {
+    throw new Error('Credit scroe system unavailable.');
+  }
   const user = getUserData(data.firstName, data.lastName)
+  console.log("isAcceptableCreditScore-user", 
+  JSON.stringify(user, null, 2));
+  console.log("isAcceptableCreditScore: ", user && user.creditScore >= 661)
   return user && user.creditScore >= 661
 }
 
 function isAcceptableBackEndRatio(data) {
   if (data && data.monthlyHousingPayment && data.monthlyIncome) {
     const backEndRatio = data.monthlyHousingPayment/data.monthlyIncome
-    console.log("backEndRation", backEndRatio)
+    console.log("backEndRatio", backEndRatio)
     const result = backEndRatio <= .36
-    console.log("result", result)
+    console.log("isAcceptableBackEndRatio", result)
     return result
   }
 }

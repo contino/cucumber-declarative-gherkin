@@ -2,7 +2,9 @@
 const { generate } = require('multiple-cucumber-html-reporter');
 const { removeSync } = require('fs-extra');
 const cucumberJson = require('wdio-cucumberjs-json-reporter').default;
-const browserLogs = require('./tools/testing/browser-logs');
+const browserLogs = require('../tools/testing/browser-logs');
+
+import dataManager from './data/data-manager';
 
 // Toggles logging browser error logs into the Cucumber HTML report. 
 // Defaults to logging errors.
@@ -92,6 +94,20 @@ exports.config = {
     // from the same test should run tests.
     //
     maxInstances: 10,
+    autoCompileOpts: {
+        autoCompile: true,
+        // see https://github.com/TypeStrong/ts-node#cli-and-programmatic-options
+        // for all available options
+        tsNodeOpts: {
+            transpileOnly: true,
+            project: 'features/tsconfig.e2e.json'
+        },
+        // tsconfig-paths is only used if "tsConfigPathsOpts" are provided, if you
+        // do please make sure "tsconfig-paths" is installed as dependency
+        tsConfigPathsOpts: {
+            baseUrl: './features'
+        },
+    },
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
@@ -110,6 +126,8 @@ exports.config = {
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
+        // Override the default browser logging to get more info in the 
+        // Cucumber HTML report.
         "goog:loggingPrefs": { "driver": "WARNING", "browser": "INFO" }
     }],
     //
@@ -288,6 +306,8 @@ exports.config = {
         // the test.  Helps with troubleshooting.
         logConsoleOutput(false);
         logs.reset();
+        // Clear any existing data in the data manager, so we start new
+        dataManager.clearCache();
     },
     /**
      * Runs before a Cucumber step

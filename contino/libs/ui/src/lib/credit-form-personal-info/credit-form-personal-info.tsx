@@ -69,21 +69,21 @@ export function CreditFormPersonalInfo(props: CreditFormPersonalInfoProps) {
       </Typography>
       <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}
         style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-        <TextField name="firstName" required id="standard-required" label="First Name"
+        <TextField name="firstName" required id="first-name" label="First Name"
           style={{ display: 'flex', margin: '10px 0 25px 0' }}
           inputRef={register({ required: true })}
           error={errors.firstName?.message !== undefined}
           helperText={errors.firstName?.message}
           value={cachedData.firstName}
         />
-        <TextField name="middleInitial" required id="standard-required" label="Middle Initial"
+        <TextField name="middleInitial" required id="middle-initial" label="Middle Initial"
           style={{ display: 'flex', margin: '0 0 25px 0' }}
           inputRef={register({ required: true })}
           error={errors.middleInitial?.message !== undefined}
           helperText={errors.middleInitial?.message}
           value={cachedData.middleInitial}
         />
-        <TextField name="lastName" required id="standard-required" label="Last Name"
+        <TextField name="lastName" required id="last-name" label="Last Name"
           style={{ display: 'flex', margin: '0 0 25px 0' }}
           inputRef={register({ required: true })}
           error={errors.lastName?.message !== undefined}
@@ -110,7 +110,7 @@ export function CreditFormPersonalInfo(props: CreditFormPersonalInfoProps) {
             helperText={errors.dateOfBirth?.message}
           />
         </MuiPickersUtilsProvider>
-        <TextField name="ssn" required id="standard-required" label="SSN"
+        <TextField name="ssn" required id="ssn" label="SSN"
           style={{ display: 'flex', margin: '0 0 25px 0' }}
           inputRef={register({ required: true })}
           error={errors.ssn?.message !== undefined}

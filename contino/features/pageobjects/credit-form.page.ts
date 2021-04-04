@@ -1,7 +1,7 @@
 import Page from './page';
-import UserNavigation from './user-navigation';
 
-enum FormSections {
+// The sections of the credit form mapped to URL paths
+export enum FormSections {
     Personal = "user/form",
     Employment = "user/form/page2",
     Financial = "user/form/page3"
@@ -9,12 +9,19 @@ enum FormSections {
 
 class CreditFormPage extends Page {
 
+    get txtPageHelperTexts () { return $('.Mui-error') }
+
     // Personal section elements
     get tfFirstName () { return $('[name="firstName"]') }
+    get txtFirstNameHelperText () { return $('#first-name-helper-text') }
     get tfMiddleInitial () { return $('[name="middleInitial"]') }
+    get txtMiddleInitialHelperText () { return $('#middle-initial-helper-text') }
     get tfLastName () { return $('[name="lastName"]') }
+    get txtLastNameHelperText () { return $('#last-name-helper-text') }
     get tfDateOfBirth () { return $('[name="dateOfBirth"]') }
+    get txtDateOfBirthHelperText () { return $('#date-of-birth-helper-text') }
     get tfSsn () { return $('[name="ssn"]') }
+    get txtSsnHelperText () { return $('#ssn-helper-text') }
 
     // Employment section elements
     get slctCountryOfCitizenShip () { return $('[name="countryOfCitizenShip"]') }
