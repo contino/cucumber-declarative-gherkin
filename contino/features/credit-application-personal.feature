@@ -6,7 +6,7 @@ Feature: Credit Application Personal information
         And they see no error messages in the form section
         And "Tom Smith" fills out the personal information section of the form
         When they attept to continue to next section
-        And they see '<error message names>' name error messages
+        Then they see '<error message names>' name error messages
         Examples:
             | mod name              | error message names                |
             | empty personal values | required perosnal error msgs       |

@@ -8,7 +8,7 @@ Feature: New Credit Form Applciation
         Given "Tom Smith w/ minimum acceptable back-end ratio" logs in
         And "Tom Smith" fills out the form with their information
         When they submit their form
-        And they see a "success" submittal response
+        Then they see a "success" submittal response
 
     # In this scenario, Mike Fog has a back-end ratio of 36.02%, which is just
     # over the value stated in the organization/industry terms wiki.
@@ -18,7 +18,7 @@ Feature: New Credit Form Applciation
         Given "Mike Fog w/ a just barely failing back-end ratio" logs in
         And "Mike Fog" fills out the form with their information
         When they submit their form
-        And they see a "failing" submittal response
+        Then they see a "failing" submittal response
 
     # This is a broken scenario to demostrate the logging and screenshot 
     # logging abilities.  To see the logs, open the file below and naviagte 
@@ -29,7 +29,7 @@ Feature: New Credit Form Applciation
         Given "Lisa Mach w/ highest failing credit score" logs in
         And "Lisa Mach" fills out the form with their information
         When they submit their form
-        And they see a "failing" submittal response
+        Then they see a "failing" submittal response
 
     # This scenario is an example of reusing an existing persona dataset by
     # modifying it.  By reusing a personas it keeps the number of personas to
@@ -43,7 +43,7 @@ Feature: New Credit Form Applciation
             | failing back-end ratio | example of modifying a persona, so there are only a few of them |
         And "Tom Smith" fills out the form with their information
         When they submit their form
-        And they see a "failing" submittal response
+        Then they see a "failing" submittal response
 
     # Good eaxmple of testing system errors.  This may require running the 
     # system under test supported by mocks.  Thus, it is easy to inject
@@ -52,5 +52,5 @@ Feature: New Credit Form Applciation
         Given "Kelly Baddy w/ the ability to break things" logs in
         And "Kelly Baddy" fills out the form with their information
         When they submit their form
-        And they see a "error" submittal response
+        Then they see a "error" submittal response
     
