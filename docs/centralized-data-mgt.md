@@ -10,7 +10,7 @@ data by name/alias.  Here is a Gherkin example:
     Given "Lisa Mach w/ highest failing credit score" logs in
     And "Lisa Mach" fills out the form with their information
     When they submit their form
-    And they see a submittal response "Your application cannot proceed. We will mail you a detailed letter."
+    Then they see a submittal response "Your application cannot proceed. We will mail you a detailed letter."
 ```
 
 In the example above, "Lisa Mach" is the name of persona dataset we are using.
@@ -29,7 +29,7 @@ is an example:
     |  failing back-end ratio | example of modifying a persona, so there are only a few of them |
     And "Tom Smith" fills out the form with their information
     When they submit their form
-    And they see a submittal response "Your application cannot proceed. We will mail you a detailed letter."
+    Then they see a submittal response "Your application cannot proceed. We will mail you a detailed letter."
 ```
 
 In this example, the "Tom Smith" persona dataset is being merged with the
