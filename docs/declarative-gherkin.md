@@ -9,7 +9,7 @@ without any technical implementation details.  Here is an example:
     Given "Lisa Mach w/ highest failing credit score" logs in
     And "Lisa Mach" fills out the form with their information
     When they submit their form
-    And they see a submittal response "Your application cannot proceed. We will mail you a detailed letter."
+    Then they see a submittal response "Your application cannot proceed. We will mail you a detailed letter."
 ```
 
 ## Declarative Gherkin Explained
