@@ -6,7 +6,7 @@
 
 This is a training aide to help people learn Declarative Gherkin.  It is not
 easy to learn Declarative Gherkin.  Thus, this app helps people understand how
-to take what they learned in training and see it working, as a whole.
+to take what they learned in training and see a working implementation.
 
 ## Where to Start?
 
@@ -23,6 +23,10 @@ Want to run the declarative Gherkin:
 1. run `npm run e2e`
 1. Then open the file
     `cucumber-declarative-gherkin/contino/.tmp/report/index.html` in a browser
+
+**NOTE:** The e2e test will fail.  It is to demo the advance logging.  
+navigate to the failing scenario to see a screenshot, test suite failure
+location and client logging entries.
 
 ## Perquisites
 
