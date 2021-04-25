@@ -92,12 +92,12 @@ export function CreditFormFinancialInfo(props: CreditFormFinancialInfoProps) {
           value={cachedData.investmentsAmount}
         />
         <div style={{ display: 'flex', justifyContent: 'space-around', flexDirection: 'row' }}>
-          <Button variant="contained">
+          {/* <Button variant="contained">
             Cancel
           </Button>
           <Button variant="contained" color="secondary">
             Previous
-          </Button>
+          </Button> */}
           <Button variant="contained" color="primary" type="submit">
             Submit Applciation
           </Button>

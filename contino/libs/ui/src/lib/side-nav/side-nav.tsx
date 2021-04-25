@@ -58,7 +58,7 @@ export function SideNav(props: SideNavProps) {
     sideNav = <Paper elevation={3}> 
       <List aria-label="main mailbox folders"> 
         <ListItemLink id="apply-link" to="/user/form" primary="Apply" pathname={location.pathname} pathPrefix="/user/form" /> 
-        <ListItemLink id="status-link" to="/user/status" primary="Check status" pathname={location.pathname} pathPrefix="/user/status" /> 
+        {/* <ListItemLink id="status-link" to="/user/status" primary="Check status" pathname={location.pathname} pathPrefix="/user/status" />  */}
       </List> 
     </Paper>;
   } 

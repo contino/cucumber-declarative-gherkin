@@ -13,7 +13,7 @@ const enforceConsoleLogErrors = process.env.ENFORCE_CONSOLE_LOG_ERRORS || 'true'
 // Allows for filtering of logs by logging level.  See 
 // ./tools/testing/browser-logs for details.   
 // Based on: https://github.com/wix/protractor-browser-logs#readme
-let browserLogsInstance;
+let browserLogsInstance: any;
 
 /*
   There are several log level values available, but SEVERE is the only valid 
@@ -33,11 +33,11 @@ const consoleLoggingLevels = ['SEVERE', 'INFO', 'WARNING'];
  *
  * @param suppressErrors {boolean} Allows for error to be logged or not
  */
-function logConsoleOutput(suppressErrors) {
+function logConsoleOutput(suppressErrors: boolean) {
     if (browserLogsInstance) {
         const bLogs = browserLogsInstance.logs();
         if (cucumberJson.attach && bLogs && consoleLoggingLevels && consoleLoggingLevels.length > 0) {
-            bLogs.forEach((log) => {
+            bLogs.forEach((log: any) => {
                 if (consoleLoggingLevels.includes(log.level.toString())) {
                     cucumberJson.attach(`${new Date(log.timestamp)} [${log.level}]: ${log.message}`);
                 }
@@ -242,9 +242,9 @@ exports.config = {
     /**
      * Gets executed once before all workers get launched.
      * @param {Object} config wdio configuration object
-     * @param {Array.<Object>} capabilities list of capabilities details
+     * @param {Array.<Object>} _capabilities list of capabilities details
      */
-    onPrepare: function (config, capabilities) {
+    onPrepare: function (_config: any, _capabilities: any) {
         // Remove the `.tmp/` folder that holds the json and report files
         removeSync('.tmp/')
     },
@@ -292,7 +292,7 @@ exports.config = {
     /**
      * Runs before a Cucumber scenario
      */
-    beforeScenario: function (world) {
+    beforeScenario: function (_world: any) {
         // Set up logging of browser logs 
         const logs = browserLogs(browser);
         // TODO make client logs capture more configurable
@@ -317,7 +317,7 @@ exports.config = {
     /**
      * Runs after a Cucumber step
      */
-    afterStep: function (step, context, status) {
+    afterStep: function (_step: any, _context: any, status: any) {
         // Take screenshot on failed senarios for troubleshooting
         if (status && status.passed === false) { 
             cucumberJson.attach(browser.takeScreenshot(), 'image/png');
@@ -326,7 +326,7 @@ exports.config = {
     /**
      * Runs after a Cucumber scenario
      */
-    afterScenario: function (world) {
+    afterScenario: function (_world: any) {
         // Capture browser logs into the Cucumber HTML report.
         logConsoleOutput(false);
     },
@@ -370,7 +370,7 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {<Object>} results object containing test results
      */
-    onComplete: function (exitCode, config, capabilities, results) {
+    onComplete: function (_exitCode: any, _config: any, _capabilities: any, _results: any) {
         // Generate the report when it all tests are done
         generate({
             // Required
