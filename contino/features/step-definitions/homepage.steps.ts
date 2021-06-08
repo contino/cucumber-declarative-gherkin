@@ -20,7 +20,7 @@ Then('They see the demo instructions', function () {
 Then('They see the header', function () {
     const headerLogoLinkElem = Header.headerLogoLink;
     expect(headerLogoLinkElem).toHaveChildren(1);
-    expect(headerLogoLinkElem).toHaveLink('http://localhost:4200/');
+    expect(headerLogoLinkElem).toHaveLink('/');
     const headerTitleElem = Header.headerTitle;
     expect(headerTitleElem).toHaveText('First Change Bank');
 });
