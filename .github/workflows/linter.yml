@@ -23,7 +23,7 @@ jobs:
           node-version: '14'
 
       - name: Install depdendencies
-        run: cd contino && npm install
+        run: cd contino && npm ci
 
       - name: Install Narwhal/NX
         run: cd contino && npm install -g nx

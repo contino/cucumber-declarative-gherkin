@@ -19,6 +19,7 @@ folder.
 Want to run the declarative Gherkin:
 
 1. Install the perquisites
+1. Run `nvm use` in the root folder
 1. run `npm install` in the `contino` folder
 1. run `npm run e2e`
 1. Then open the file
