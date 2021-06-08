@@ -22,7 +22,7 @@ we only obtain error messages to keep the noise down.
 
 After running the e2e test suite, it generates a HTML report.  
 The e2e test suite creates a Cucumber HTML report in
-`<root-folder>/contino/.tmp/report`.  Opening `index.html` in a browser will
+`<root-folder>/first-bank/.tmp/report`.  Opening `index.html` in a browser will
 allow you see the failing and passing items.
 
 <!-- TODO need to add a failing test to describe here. -->
@@ -31,7 +31,7 @@ allow you see the failing and passing items.
 
 Logging of errors are provided by Cucumber and WebDriverIO, so there is no
 implementation required from us.  However, screenshots requires a few lines of
-code in the `afterStep` function in the `contino\wdio.conf.js` around line 305.
+code in the `afterStep` function in the `first-bank\wdio.conf.js` around line 305.
 
 ## Logging Browser Log Entries
 
@@ -41,7 +41,7 @@ version of protractor tool to retrieve browser logs and filter them by logging
 level.
 
 All the code is in `wdio.conf.js`, most of it is at top of the file with
-a couple of hooks making related calls.  The code starts `contino\wdio.conf.js`
+a couple of hooks making related calls.  The code starts `first-bank\wdio.conf.js`
 around line 7.
 The primary piece is the `logConsoleOutput` function, which retrieves the logs
 and filters them.
@@ -49,4 +49,4 @@ and filters them.
 ## Logging in the Test Suite
 
 With Cucumber you can log within scenario steps.  An example of the code is
-`contino\wdio.conf.js` around line 10.
+`first-bank\wdio.conf.js` around line 10.

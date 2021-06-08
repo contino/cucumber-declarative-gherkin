@@ -4,18 +4,18 @@
   "description": "Demo of how to write declarative Gherkin",
   "main": "index.js",
   "scripts": {
-    "start": "cd contino && nx run declarative-gherkin:serve",
-    "test": "cd contino && nx run-many --all --target=test",
-    "lint": "cd contino && nx run-many --all --target=lint",
-    "e2e": "cd contino && npm run e2e",
-    "e2e-headless": "cd contino && npm run e2e-headless",
-    "e2e-dev": "cd contino && npm run e2e-dev",
-    "e2e-dev-headless": "cd contino && npm run e2e-dev-headless",
-    "snippets": "cd contino && npm run snippets"
+    "start": "cd first-bank && nx run declarative-gherkin:serve",
+    "test": "cd first-bank && nx run-many --all --target=test",
+    "lint": "cd first-bank && nx run-many --all --target=lint",
+    "e2e": "cd first-bank && npm run e2e",
+    "e2e-headless": "cd first-bank && npm run e2e-headless",
+    "e2e-dev": "cd first-bank && npm run e2e-dev",
+    "e2e-dev-headless": "cd first-bank && npm run e2e-dev-headless",
+    "snippets": "cd first-bank && npm run snippets"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/contino/cucumber-declarative-gherkin.git"
+    "url": "git+https://github.com/first-bank/cucumber-declarative-gherkin.git"
   },
   "keywords": [
     "cucumber",
@@ -27,8 +27,8 @@
   "author": "Joe L. Bailey",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/contino/cucumber-declarative-gherkin/issues"
+    "url": "https://github.com/first-bank/cucumber-declarative-gherkin/issues"
   },
-  "homepage": "https://github.com/contino/cucumber-declarative-gherkin#readme",
+  "homepage": "https://github.com/first-bank/cucumber-declarative-gherkin#readme",
   "devDependencies": {}
 }

@@ -23,10 +23,10 @@ jobs:
           node-version: '14'
 
       - name: Install depdendencies
-        run: cd contino && npm ci
+        run: cd first-bank && npm ci
 
       - name: Install Narwhal/NX
-        run: cd contino && npm install -g nx
+        run: cd first-bank && npm install -g nx
 
       # Runs the Linter action
       - name: Run Linter

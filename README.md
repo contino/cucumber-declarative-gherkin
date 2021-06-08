@@ -1,8 +1,8 @@
 # cucumber-declarative-gherkin
 
-[![Linter](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/linter.yml/badge.svg)](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/linter.yml)
-[![Unit Tests](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/unit-tests.yml)
-[![e2e Tests](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/contino/cucumber-declarative-gherkin/actions/workflows/e2e-test.yml)
+[![Linter](https://github.com/first-bank/cucumber-declarative-gherkin/actions/workflows/linter.yml/badge.svg)](https://github.com/first-bank/cucumber-declarative-gherkin/actions/workflows/linter.yml)
+[![Unit Tests](https://github.com/first-bank/cucumber-declarative-gherkin/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/first-bank/cucumber-declarative-gherkin/actions/workflows/unit-tests.yml)
+[![e2e Tests](https://github.com/first-bank/cucumber-declarative-gherkin/actions/workflows/e2e-test.yml/badge.svg)](https://github.com/first-bank/cucumber-declarative-gherkin/actions/workflows/e2e-test.yml)
 
 This is a training aide to help people learn Declarative Gherkin.  It is not
 easy to learn Declarative Gherkin.  Thus, this app helps people understand how
@@ -13,17 +13,17 @@ to take what they learned in training and see a working implementation.
 Want to learn more about declarative Gherkin, read the training or
 look at the docs [here](./docs/declarative-gherkin.md).
 
-Want to see the declarative Gherkin, go into the `contino/features`
+Want to see the declarative Gherkin, go into the `first-bank/features`
 folder.
 
 Want to run the declarative Gherkin:
 
 1. Install the perquisites
 1. Run `nvm use` in the root folder
-1. run `npm install` in the `contino` folder
+1. run `npm install` in the `first-bank` folder
 1. run `npm run e2e`
 1. Then open the file
-    `cucumber-declarative-gherkin/contino/.tmp/report/index.html` in a browser
+    `cucumber-declarative-gherkin/first-bank/.tmp/report/index.html` in a browser
 
 **NOTE:** The e2e test will fail.  It is to demo the advance logging.  
 navigate to the failing scenario to see a screenshot, test suite failure
