@@ -1,0 +1,34 @@
+{
+  "name": "cucumber-declarative-gherkin",
+  "version": "1.0.0",
+  "description": "Demo of how to write declarative Gherkin",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd first-bank-of-change && nx run declarative-gherkin:serve",
+    "test": "cd first-bank-of-change && nx run-many --all --target=test",
+    "lint": "cd first-bank-of-change && nx run-many --all --target=lint",
+    "e2e": "cd first-bank-of-change && npm run e2e",
+    "e2e-headless": "cd first-bank-of-change && npm run e2e-headless",
+    "e2e-dev": "cd first-bank-of-change && npm run e2e-dev",
+    "e2e-dev-headless": "cd first-bank-of-change && npm run e2e-dev-headless",
+    "snippets": "cd first-bank-of-change && npm run snippets"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/first-bank-of-change/cucumber-declarative-gherkin.git"
+  },
+  "keywords": [
+    "cucumber",
+    "gherkin",
+    "declarative",
+    "declarative-gherkin",
+    "bdd"
+  ],
+  "author": "Joe L. Bailey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/first-bank-of-change/cucumber-declarative-gherkin/issues"
+  },
+  "homepage": "https://github.com/first-bank-of-change/cucumber-declarative-gherkin#readme",
+  "devDependencies": {}
+}

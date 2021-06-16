@@ -1,0 +1,5 @@
+{
+    "rules": {
+        "plugin:react-hooks/recommended": "off"
+    }
+}

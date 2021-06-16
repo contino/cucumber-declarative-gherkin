@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "sourceMap": false,
+    "outDir": "../dist/out-tsc",
+    "allowJs": true,
+    "target": "es2019",
+    "module": "commonjs",
+    "removeComments": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "types": [
+      "node", 
+      "webdriverio/sync", 
+      "@wdio/cucumber-framework", 
+      "@wdio/selenium-standalone-service",
+      "expect-webdriverio",
+      "expect-webdriverio/types/standalone-global",
+      "@wdio/devtools-service",
+      "./wdio"
+    ],
+    "resolveJsonModule": true,
+  },
+  "include": ["./**/*.ts", "./**/*.js"]
+}

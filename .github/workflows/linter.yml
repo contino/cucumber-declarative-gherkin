@@ -1,0 +1,33 @@
+name: Linter
+
+# Run this workflow every time a new commit pushed to your repository
+on: [pull_request]
+
+jobs:
+  # Set the job key. The key is displayed as the job name
+  # when a job name is not provided
+  lint:
+    # Name the Job
+    name: Lint code base
+    # Set the type of machine to run on
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install depdendencies
+        run: cd first-bank-of-change && npm ci
+
+      - name: Install Narwhal/NX
+        run: cd first-bank-of-change && npm install -g nx
+
+      # Runs the Linter action
+      - name: Run Linter
+        run: npm run lint

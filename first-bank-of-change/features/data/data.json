@@ -1,0 +1,195 @@
+[
+    {
+        "name": "Tom Smith",
+        "aliases": [
+            "Tom Smith w/ minimum acceptable back-end ratio"
+        ],
+        "firstName": "Tom",
+        "middleInitial": "A",
+        "lastName": "Smith",
+        "dateOfBirth": "12/12/1980",
+        "ssn": "555-55-5555",
+        "countryOfCitizenShip": "GB",
+        "countryOfCitizenShipSecondary": "US",
+        "currentEmployerName": "Acme Shoes",
+        "workPhone": "(555)444-3333",
+        "yearsEmployed": 5,
+        "monthsEmployed": 2,
+        "occupation": "Project Manager",
+        "monthlyHousingPayment": 1800,
+        "checkingAmount": 2000,
+        "savingsAmount": 2000,
+        "investmentsAmount": 20000,
+        "monthlyIncome": 5000,
+        "username": "tom_smith",
+        "password": "GhekinIsFun"
+    },
+    {
+        "name": "Mike Fog",
+        "aliases": [
+            "Mike Fog w/ a just barely failing back-end ratio"
+        ],
+        "firstName": "Mike",
+        "middleInitial": "A",
+        "lastName": "Fog",
+        "dateOfBirth": "01/01/1980",
+        "ssn": "555-66-5555",
+        "countryOfCitizenShip": "GB",
+        "countryOfCitizenShipSecondary": "US",
+        "currentEmployerName": "Acme Sinks",
+        "workPhone": "(555)222-3333",
+        "yearsEmployed": 3,
+        "monthsEmployed": 3,
+        "occupation": "CEO",
+        "monthlyHousingPayment": 18001,
+        "checkingAmount": 200000,
+        "savingsAmount": 200000,
+        "investmentsAmount": 20000000,
+        "monthlyIncome": 50000,
+        "username": "mike_fog",
+        "password": "GhekinIsFun"
+    },
+    {
+        "name": "Lisa Mach",
+        "aliases": [
+            "Lisa Mach w/ highest failing credit score"
+        ],
+        "firstName": "Lisa",
+        "middleInitial": "b",
+        "lastName": "Mach",
+        "dateOfBirth": "12/11/1981",
+        "ssn": "555-55-6666",
+        "countryOfCitizenShip": "GB",
+        "countryOfCitizenShipSecondary": "US",
+        "currentEmployerName": "Acme Boots",
+        "workPhone": "(555)555-3333",
+        "yearsEmployed": 2,
+        "monthsEmployed": 2,
+        "occupation": "Boot Maker",
+        "monthlyHousingPayment": 1800,
+        "checkingAmount": 2000,
+        "savingsAmount": 2000,
+        "investmentsAmount": 20000,
+        "monthlyIncome": 5000,
+        "username": "lisa_mach",
+        "password": "GhekinIsFun"
+    },
+    {
+        "name": "Kelly Baddy",
+        "aliases": [
+            "Kelly Baddy w/ the ability to break things"
+        ],
+        "firstName": "Kelly",
+        "middleInitial": "A",
+        "lastName": "Baddy",
+        "dateOfBirth": "10/11/1980",
+        "ssn": "555-22-5555",
+        "countryOfCitizenShip": "GB",
+        "countryOfCitizenShipSecondary": "US",
+        "currentEmployerName": "Acme Oil",
+        "workPhone": "(555)111-2222",
+        "yearsEmployed": 10,
+        "monthsEmployed": 1,
+        "occupation": "CIO",
+        "monthlyHousingPayment": 1800,
+        "checkingAmount": 2000,
+        "savingsAmount": 2000,
+        "investmentsAmount": 20000,
+        "monthlyIncome": 5000,
+        "username": "kelly_baddy",
+        "password": "GhekinIsFun"
+    },
+    {
+        "name": "failing back-end ratio",
+        "monthlyHousingPayment": 18001,
+        "monthlyIncome": 50000
+    },
+    {
+        "name": "Form Submittal Response Messages",
+        "msgMap": {
+            "failing": "Your application cannot proceed. We will mail you a detailed letter.",
+            "success": "Thank you, your application was submitted for further processing.",
+            "error": "Sorry, our systems are unavailable at this time. We will email your credit card status later."
+        }
+    },
+    {
+        "name": "empty personal values",
+        "firstName": "",
+        "middleInitial": "",
+        "lastName": "",
+        "dateOfBirth": "",
+        "ssn": ""
+    },
+    {
+        "name": "short personal values",
+        "firstName": "Li",
+        "middleInitial": "",
+        "lastName": "Li",
+        "dateOfBirth": "1",
+        "ssn": "1"
+    },
+    {
+        "name": "long middle initial",
+        "firstName": "",
+        "middleInitial": "LI",
+        "lastName": "",
+        "dateOfBirth": "",
+        "ssn": ""
+    },
+    {
+        "name": "invalid dob format",
+        "firstName": "",
+        "middleInitial": "",
+        "lastName": "",
+        "dateOfBirth": "1",
+        "ssn": ""
+    },
+    {
+        "name": "invalid SSN format",
+        "firstName": "",
+        "middleInitial": "",
+        "lastName": "",
+        "dateOfBirth": "",
+        "ssn": "a"
+    },
+    {
+        "name": "required perosnal error msgs",
+        "firstName": "firstName is a required field",
+        "middleInitial": "middleInitial is a required field",
+        "lastName": "lastName is a required field",
+        "dateOfBirth": "dateOfBirth is a required field",
+        "ssn": "ssn is a required field"
+    },
+    {
+        "name": "middle intial must be X characters",
+        "firstName": "firstName is a required field",
+        "middleInitial": "middleInitial must be exactly 1 characters",
+        "lastName": "lastName is a required field",
+        "dateOfBirth": "dateOfBirth is a required field",
+        "ssn": "ssn must match the following: \"/^[0-9]{3}-[0-9]{2}-[0-9]{4}$/\""
+    },
+    {
+        "name": "perosnal at least X characters",
+        "firstName": "firstName must be at least 3 characters",
+        "middleInitial": "middleInitial is a required field",
+        "lastName": "lastName must be at least 3 characters",
+        "dateOfBirth": "dateOfBirth must be at least 3 characters",
+        "ssn": "ssn must match the following: \"/^[0-9]{3}-[0-9]{2}-[0-9]{4}$/\""
+    },
+    {
+        "name": "invalid ssn error msg",
+        "firstName": "firstName is a required field",
+        "middleInitial": "middleInitial is a required field",
+        "lastName": "lastName is a required field",
+        "dateOfBirth": "dateOfBirth must be at least 3 characters",
+        "ssn": "ssn must be at least 3 characters"
+    },
+    {
+        "name": "invalid dob error msg",
+        "firstName": "firstName is a required field",
+        "middleInitial": "middleInitial is a required field",
+        "lastName": "lastName is a required field",
+        "dateOfBirth": "dateOfBirth must be at least 3 characters",
+        "ssn": "ssn must be at least 3 characters"
+    }
+]
