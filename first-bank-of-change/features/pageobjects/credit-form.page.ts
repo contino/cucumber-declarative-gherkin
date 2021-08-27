@@ -32,7 +32,7 @@ class CreditFormPage extends Page {
     get tfMonthsEmployed () { return $('[name="monthsEmployed"]') }
     get tfOccupation () { return $('[name="occupation"]') }
 
-    // Finanacial section elements
+    // Financial section elements
     get tfMonthlyIncome () { return $('[name="monthlyIncome"]') }
     get tfMonthlyHousingPayment () { return $('[name="monthlyHousingPayment"]') }
     get tfCheckingAmount () { return $('[name="checkingAmount"]') }
