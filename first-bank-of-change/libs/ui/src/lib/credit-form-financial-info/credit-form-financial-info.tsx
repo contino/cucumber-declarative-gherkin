@@ -16,7 +16,7 @@ import {
 import './credit-form-financial-info.module.scss';
 
 // Financial inputs for the form
-type FinanacialInputs = {
+type FinancialInputs = {
   monthlyIncome: number,
   monthlyHousingPayment: number,
   checkingAmount: number,
@@ -38,7 +38,7 @@ export interface CreditFormFinancialInfoProps { }
 
 // Generates the financial info part of the new credit card application form
 export function CreditFormFinancialInfo(props: CreditFormFinancialInfoProps) {
-  const { register, handleSubmit, errors } = useForm<FinanacialInputs>({
+  const { register, handleSubmit, errors } = useForm<FinancialInputs>({
     resolver: yupResolver(schema),
   });
   const formData = useFormData();
@@ -59,7 +59,7 @@ export function CreditFormFinancialInfo(props: CreditFormFinancialInfoProps) {
   return (
     <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
       <Typography variant="h5">
-        Finanacial Information
+        Financial Information
       </Typography>
       <form noValidate autoComplete="off" onSubmit={handleSubmit(onSubmit)}
         style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
