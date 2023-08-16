@@ -27,6 +27,10 @@ npm i -g nx
 ################
 ### project ...
 
+# web.conf.ts should have:
+# add browserVersion: 'stable',
+# comment out "services"
+
 cd first-bank-of-change
 
 # remove old package file
