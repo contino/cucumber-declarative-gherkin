@@ -1,8 +1,11 @@
+# Demo of cucumber running locally
+
+These are quick notes of how you can get the demo working locally. Ideally these should be containerized in the future.
+
+## pre-reqs
+Make sure you have node v14 installed, and install nx.
 
 ```
-################
-### pre-reqs ...
-
 # have/get node (this might error if you get a newer version)
 brew install node
 
@@ -19,14 +22,13 @@ alias python=python3
 
 # NX needs to be installed globally
 npm i -g nx
+```
 
+# Run the e2e tests
 
+make changes to the webdriver config, install the node depenecies for this project (those could be containerized/cached in the future), then run the e2e tests.
 
-
-
-################
-### project ...
-
+```
 # web.conf.ts should have:
 # add browserVersion: 'stable',
 # comment out "services"
@@ -46,15 +48,15 @@ npm run start # then go to http://localhost:4200
 # wdio.confs.ts - remove services, add browserVersion
 #  /Users/drewkhoury/repos/cucumber-declarative-gherkin/first-bank-of-change/.tmp/report/index.html
 npm run e2e
-
 ```
+The app will run as http://localhost:4200/ in your browser.
 
-# notes
-https://liatrio.github.io/dojo-portal/#/catalogue/behavior-driven-development/
-https://webdriver.io/
-https://webdriver.io/blog/
-http://localhost:4200/
-https://github.com/drewkhoury/cucumber-declarative-gherkin/blob/main/docs/declarative-gherkin.md
-file:///Users/drewkhoury/repos/cucumber-declarative-gherkin/first-bank-of-change/.tmp/report/index.html
-https://cucumber.io/docs/bdd/better-gherkin/
-https://cucumber.io/docs/bdd/
+The test results should be available in the `./.tmp` folder locally: file:///Users/drewkhoury/repos/cucumber-declarative-gherkin/first-bank-of-change/.tmp/report/index.html (open this file in your browser).
+
+# Resources
+- https://liatrio.github.io/dojo-portal/#/catalogue/behavior-driven-development/
+- https://webdriver.io/
+- https://webdriver.io/blog/
+- https://github.com/drewkhoury/cucumber-declarative-gherkin/blob/main/docs/declarative-gherkin.md
+- https://cucumber.io/docs/bdd/better-gherkin/
+- https://cucumber.io/docs/bdd/
