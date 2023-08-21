@@ -1,5 +1,9 @@
 # cucumber-declarative-gherkin
 
+## START HERE
+
+See [quick notes](/quick-notes.md) for recent notes on getting this demo setup on your local workstation (which should be replaced by containerized instructions in the future).
+
 ## WARNING
 
 At the time of writing 2 vulnerabilities are present in upstream
