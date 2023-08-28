@@ -46,17 +46,16 @@ npm run start # then go to http://localhost:4200
 
 # run the e2e tests - which will also bring the app up - will depend on selenium/chromedriver
 # wdio.confs.ts - remove services, add browserVersion
-#  /Users/drewkhoury/repos/cucumber-declarative-gherkin/first-bank-of-change/.tmp/report/index.html
+
 npm run e2e
 ```
 The app will run as http://localhost:4200/ in your browser.
 
-The test results should be available in the `./.tmp` folder locally: file:///Users/drewkhoury/repos/cucumber-declarative-gherkin/first-bank-of-change/.tmp/report/index.html (open this file in your browser).
+The test results should be available in the `./.tmp` folder locally.
 
 # Resources
-- https://liatrio.github.io/dojo-portal/#/catalogue/behavior-driven-development/
 - https://webdriver.io/
 - https://webdriver.io/blog/
-- https://github.com/drewkhoury/cucumber-declarative-gherkin/blob/main/docs/declarative-gherkin.md
+- https://github.com/contino/cucumber-declarative-gherkin/blob/main/docs/declarative-gherkin.md
 - https://cucumber.io/docs/bdd/better-gherkin/
 - https://cucumber.io/docs/bdd/
